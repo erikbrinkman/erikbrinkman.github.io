@@ -39,4 +39,7 @@ searchBox = $ '.filter'
 $ window
 .keypress -> do searchBox.focus
 
+# Manually trigger scroll event to color nav list
+$(window).scroll()
+
 return
