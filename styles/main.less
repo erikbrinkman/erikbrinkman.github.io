@@ -375,20 +375,44 @@ h3 {
         background-color: @bg-color-2;
         padding: 0.5em;
         margin-top: 0.5em;
-        cursor: pointer;
 
         h3 {
             margin: 0 0 0.5em 0;
         }
+
+        .collapsed {
+            padding-bottom: 1em;
+            display: none;
+        }
+        
+    }
+    
+    li.expandable {
+        cursor: pointer;
+
+        h3::before {
+            background-image: url('../img/chevron.svg');
+            content: "";
+            width: 1.5em;
+            height: 1.5em;
+            background-size: 100% 100%;
+            display: inline-block;
+            vertical-align: text-top;
+            transition: transform 0.4s;
+        }
+
+        h3 {
+            margin-left: 1.5em;
+            text-indent: -1.5em;
+        }
+    }
+
+    li.expanded h3::before {
+        transform: rotate(90deg);
     }
 
     li:first-child {
         margin-top: 0;
-    }
-
-    .click-expand {
-        display: none;
-        padding-bottom: 1em;
     }
 
 }

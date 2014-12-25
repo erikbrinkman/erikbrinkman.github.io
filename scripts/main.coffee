@@ -2,10 +2,13 @@
 PLEB_SEARCH.init '.filter', '.filterable', jQuery.fn.slideDown, jQuery.fn.slideUp
 
 # Click to expand
-$ '.block-list > li'
+$ '.block-list > li.expandable'
 .click (event) ->
+    $ @
+    .toggleClass('expanded') if event.target.tagName isnt 'A'
+        
     do $ @
-    .find '.click-expand'
+    .find '.collapsed'
     .slideToggle if event.target.tagName isnt 'A'
     return
 
