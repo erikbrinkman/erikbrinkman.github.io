@@ -1,0 +1,203 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Classicthesis-Styled CV
+% LaTeX Template
+% Version 1.0 (22/2/13)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Alessandro Plasmati
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%--------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%--------------------------------------------------------------------------------
+
+\documentclass[letterpaper]{scrartcl}
+
+\usepackage{xcolor}
+\definecolor{accent}{RGB}{145, 145, 233}
+
+\reversemarginpar % Move the margin to the left of the page 
+
+\newcommand{\sep}{\ \ $\cdotp$\ \ }
+\newcommand{\MarginText}[1]{\marginpar{\raggedleft\itshape\small#1}} % New command defining the margin text style
+
+\usepackage[nochapters]{classicthesis} % Use the classicthesis style for the style of the document
+\usepackage[LabelsAligned]{currvita} % Use the currvita style for the layout of the document
+
+\renewcommand{\cvheadingfont}{\LARGE\color{accent}} % Font color of your name at the top
+
+\usepackage{hyperref} % Required for adding links	and customizing them
+\hypersetup{colorlinks, breaklinks, urlcolor=accent, linkcolor=accent} % Set link colors
+
+\newlength{\datebox}\settowidth{\datebox}{Spring 2011} % Set the width of the date box in each block
+\newlength{\majsecspace}\setlength{\majsecspace}{0.7em} % Major section space
+
+\newcommand{\NewEntry}[2]{\noindent\hangindent=2em\hangafter=0 \parbox{\datebox}{\small
+    \raggedright \textit{#1}}\hspace{.5em} #2
+\vspace{0.5em}} % Add some white space after each new entry
+
+\newcommand{\OneLine}[2]{\noindent\hangindent=2em\hangafter=0 \parbox{\datebox}{\small
+    \raggedright \textit{#1}}\hspace{.5em} #2}
+
+\newcommand{\Description}[1]{\hangindent=2em\hangafter=0\noindent\raggedright\footnotesize{#1}\par\normalsize\vspace{1em}} % Define a command for descriptions of each entry - change spacing and font sizes here
+
+\usepackage{enumitem}
+\setitemize{noitemsep, topsep=0pt, label=\rule[2pt]{2.5pt}{2.5pt}, leftmargin=3.5em} % Change itemize to be more pleasing
+
+\renewcommand{\today}{} % Remove date at the bottom
+
+\usepackage{calc}
+\usepackage[top=.5in, left=0.5in + \marginparsep + \marginparwidth, right=.5in, bottom=.5in]{geometry} % margins
+
+%--------------------------------------------------------------------------------
+
+\begin{document}
+
+\thispagestyle{empty} % Stop the page count at the bottom of the first page
+
+%--------------------------------------------------------------------------------
+%	NAME AND CONTACT INFORMATION SECTION
+%--------------------------------------------------------------------------------
+
+\begin{cv}{\spacedallcaps{Erik Brinkman}}\vspace{1.5em} % Your name
+
+\noindent\spacedlowsmallcaps{Personal Information}\vspace{0.5em} % Personal information heading
+
+\vspace{.5em}
+\Description{\large
+  \href{mailto:erik.brinkman@umich.edu}{erik.brinkman@umich.edu}{\sep}
+  \href{http://erikbrinkman.github.io/}{erikbrinkman.github.io}{\sep}
+  (314) 632 6235
+}
+
+\vspace{\majsecspace}
+
+%--------------------------------------------------------------------------------
+%	EDUCATION
+%--------------------------------------------------------------------------------
+
+\spacedlowsmallcaps{Education}\vspace{1em}
+
+\NewEntry{2012-2017}{Ph.D. in Computer Science and Engineering}
+
+\Description{\MarginText{University of Michigan}%
+  GPA: 3.81{\sep}Recipient of STIET Summer Research Grant\\
+  Coursework: Machine Learning{\sep}Online Learning{\sep}Reinforcement
+  Learning{\sep}Social Networks
+}
+
+%------------------------------------------------
+
+\NewEntry{2006-2010}{Bachelor of Science in Systems Science and Engineering}
+
+\Description{\MarginText{Washington University}%
+  GPA: 3.88{\sep}\textit{Magna cum Laude}\\
+  Coursework: Algorithms for Nonlinear Optimization{\sep}%
+  Nonlinear Dynamic Systems
+}
+
+\vspace{\majsecspace} % Extra space between major sections
+
+%--------------------------------------------------------------------------------
+%	WORK EXPERIENCE
+%--------------------------------------------------------------------------------
+
+\noindent\spacedlowsmallcaps{Work Experience}\vspace{1em}
+
+\NewEntry{2012-Present}{Graduate Student Research Assistant}
+
+\Description{\MarginText{University of Michigan}%
+  \vspace{-1.5em}
+  \begin{itemize}
+  \item Studied auction settings where having access to public information is
+    bad for all agents (AAMAS 2014)
+  \item Analyze the effects of latency competition between high frequency
+    trading firms using simulation based game theory
+  \item Investigate the relative benefits of discrete clearing versus
+    continuous financial markets with complex agent behavior
+  \end{itemize}
+}
+
+\NewEntry{Summer 2014}{Research Intern}
+
+\Description{\MarginText{Elance-oDesk}%
+  \vspace{-1.5em}
+  \begin{itemize}
+  \item Developed search ranking optimization based on click-through data
+  \item Built profile photo categorizer for demographics and search ranking
+  \end{itemize}
+}
+
+\NewEntry{Fall 2013}{Graduate Student Instructor}
+
+\Description{\MarginText{University of Michigan}%
+  \vspace{-1.5em}
+  \begin{itemize}
+  \item Taught weekly fifty-student discussion section for Algorithms and Data Structures
+  \item Designed laboratory projects, created grading rubrics, held office
+    hours, and graded student work
+  \end{itemize}
+}
+
+\NewEntry{2010-2012}{Researcher}
+
+\Description{\MarginText{MIT Lincoln Laboratory}%
+  \vspace{-1.5em}
+  \begin{itemize}
+  \item Implemented an efficient topic modeling algorithm (PLSA) in MapReduce
+  \item Prototyped real time entity resolving and disambiguation system for
+    news corpora
+  \item Designed a database that supports general queries on geographic
+    descriptions
+  \item Adapted aggregate movement model between data modalities
+  \end{itemize}
+  % * Predict sociological conditions from movement data
+}
+
+\vspace{\majsecspace}
+
+%--------------------------------------------------------------------------------
+%	OTHER INFORMATION
+%--------------------------------------------------------------------------------
+
+\noindent\spacedlowsmallcaps{Leadership}\vspace{1em}
+
+\Description{\MarginText{CSE Grad Student Organization}%
+  \OneLine{2013-Present}{Organized social activities such as kayaking,
+    whirlyball, and bar crawls}
+}
+\vspace{1em}
+
+\Description{\MarginText{UM ICD REU}%
+  \OneLine{Summer 2014}{Mentored REU student in implementing an online learning
+    market making strategy}
+}
+
+\Description{\MarginText{UM SURE}%
+  \OneLine{Summer 2013}{Mentored SURE student in modifying a market simulator to
+    model communication delays present in real markets}
+}
+
+\Description{\MarginText{IM Broomball}%
+  \OneLine{2012-Present}{Co-captained IM Grad/Faculty/Staff Champion Team}
+}
+
+\vspace{\majsecspace} % Extra space between major sections
+
+\noindent\spacedlowsmallcaps{Programming Languages}\vspace{1em}
+
+\Description{%
+  Python (Numpy, Scipy, Scikit-Learn){\sep}Java{\sep}Bash{\sep}SQL{\sep}%
+  C++11{\sep}Haskell{\sep}Matlab{\sep}Lua
+}
+
+\end{cv}
+
+\end{document}
