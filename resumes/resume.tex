@@ -39,8 +39,8 @@
 \newlength{\datebox}\settowidth{\datebox}{Spring 2011} % Set the width of the date box in each block
 \newlength{\majsecspace}\setlength{\majsecspace}{0.7em} % Major section space
 
-\newcommand{\NewEntry}[2]{\noindent\hangindent=2em\hangafter=0 \parbox{\datebox}{\small
-    \raggedright \textit{#1}}\hspace{.5em} #2
+\newcommand{\NewEntry}[3][]{\noindent\hangindent=2em\hangafter=0 \parbox{\datebox}{\small
+    \raggedright \textit{#2}}\hspace{.5em} #3\hfill{\footnotesize\textsc{#1}}%
 \vspace{0.5em}} % Add some white space after each new entry
 
 \newcommand{\OneLine}[2]{\noindent\hangindent=2em\hangafter=0 \parbox{\datebox}{\small
@@ -85,7 +85,7 @@
 
 \spacedlowsmallcaps{Education}\vspace{1em}
 
-\NewEntry{2012-2017}{Ph.D. in Computer Science and Engineering}
+\NewEntry[Ann Arbor, MI]{2012-2017}{Ph.D. in Computer Science and Engineering}
 
 \Description{\MarginText{University of Michigan}%
   GPA: 3.81{\sep}Recipient of STIET Summer Research Grant\\
@@ -95,7 +95,7 @@
 
 %------------------------------------------------
 
-\NewEntry{2006-2010}{Bachelor of Science in Systems Science and Engineering}
+\NewEntry[St. Louis, MO]{2006-2010}{BS in Systems Science and Engineering}
 
 \Description{\MarginText{Washington University}%
   GPA: 3.88{\sep}\textit{Magna cum Laude}\\
@@ -111,7 +111,7 @@
 
 \noindent\spacedlowsmallcaps{Work Experience}\vspace{1em}
 
-\NewEntry{2012-Present}{Graduate Student Research Assistant}
+\NewEntry[Ann Arbor, MI]{2012-Present}{Graduate Student Research Assistant}
 
 \Description{\MarginText{University of Michigan}%
   \vspace{-1.5em}
@@ -125,7 +125,7 @@
   \end{itemize}
 }
 
-\NewEntry{Summer 2014}{Research Intern}
+\NewEntry[Mountain View, CA]{Summer 2014}{Research Intern}
 
 \Description{\MarginText{Elance-oDesk}%
   \vspace{-1.5em}
@@ -135,7 +135,7 @@
   \end{itemize}
 }
 
-\NewEntry{Fall 2013}{Graduate Student Instructor}
+\NewEntry[Ann Arbor, MI]{Fall 2013}{Graduate Student Instructor}
 
 \Description{\MarginText{University of Michigan}%
   \vspace{-1.5em}
@@ -146,7 +146,7 @@
   \end{itemize}
 }
 
-\NewEntry{2010-2012}{Researcher}
+\NewEntry[Lexington, MA]{2010-2012}{Researcher}
 
 \Description{\MarginText{MIT Lincoln Laboratory}%
   \vspace{-1.5em}
