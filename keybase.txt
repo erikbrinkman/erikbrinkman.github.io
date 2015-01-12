@@ -1,0 +1,74 @@
+==================================================================
+https://keybase.io/erikbrinkman
+------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://erikbrinkman.github.io
+  * I am erikbrinkman (https://keybase.io/erikbrinkman) on keybase.
+  * I have a public key with fingerprint A82C F774 E9AE C0F9 4EE1  AFE5 8272 632F E47B F996
+
+To claim this, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "fingerprint": "a82cf774e9aec0f94ee1afe58272632fe47bf996",
+            "host": "keybase.io",
+            "key_id": "8272632fe47bf996",
+            "kid": "010157e5e6be901a733f5838aa74ffceab7248010dd218e0cf7debaf27c526daaa3e0a",
+            "uid": "c69eae78d94c3b278e0a06e63b9c8000",
+            "username": "erikbrinkman"
+        },
+        "revoke": {
+            "sig_ids": [
+                "d01fdf8f84270b2930c90d95e28dc01ae9b68667b0b53364da5249861a9f82de0f"
+            ]
+        },
+        "service": {
+            "hostname": "erikbrinkman.github.io",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1421091935,
+    "expire_in": 157680000,
+    "prev": "4c48c16fea98c99e7e3096ca3cf493998ad366c33629d4d4bb15f373205115e2",
+    "seqno": 3,
+    "tag": "signature"
+}
+
+with the aforementioned key, yielding the PGP signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.1
+Comment: https://keybase.io/crypto
+
+yMJvAnicbZJdaB1FGIbPSUx/gmlqbwJisQxRQZNmdmZ3dufYqheKsf6ktg1Ym/Z0
+fr5JlmN2T/eck7QJvTA0B6Mg1FAJ6kXR0ErqT1tiKIhpq21BohhsQaoGSymYIkXB
+gtTU6mzUu14NM/N+z/d+78yZhtpMffbqyh/eemB6tjk7c/pIJbNlsjk/iGSs96Dc
+ICrA4mLCqBuSYhJGZZRDIiDK+L4LXIDChrsAjjDgBcQnjBIDri8N5wy1oJ64lFZY
+jBQlWBvG9sxu8qG2p7fRFxYvsIMdzwcPmASOHeFTaryABkL4rjEKhPSJG1iV1sQJ
+AFs3GqQwxFceYVoIQQELi6ss4hTjIMAPNHcVlcS3FQIzYFRyFWCMU2EJkkj0glVD
+EhaknbTQKyK0twUl0BcXIE2hFHZb4yWU24Y0dow2gQlc4mNJOMWKY809IIFW1jFw
+yQLGfImlRylztfCIywPmCG4CogEbtN2ybde+UC3C06Ru42Btd1juqch/kysmcTlW
+8UtW01MuF0u51F95TzEt6geZ/w+Xl2Gk7YvZij5ISmEcoZxjlaocpnzHJQ7mDqde
+C4LdxTCBfJgqPJ+laeC0D/RZpKvcQDnMgOCB4hx8oJgzJagyLqecB0JTxpSdj3Dt
+aldKxzPUpwR7jmOjQOmAu6IY5ai1Kbot0kYYiXIlAbT381Ndd2Sy9ZkldTXpn8vU
+L1/5/09sPLD0VmvHrU1z+77vHI3XNPy+vqltx+pT88uqCyevfNOxYiyqnnn5qxMb
+Nl+fHfjxzbGm16v9w87Jx56YO35092jDQ5/+ddfA6Y1q/fvtLw5/4L4w5k1/Wbn8
+a/Z8zczCwPK2uZpq79TBs1c7V82/drF6sfbaKztHZHtu6vz01kvP3T10YX5y9lxx
+++RIR2vt4x83Dx9+4+FzW/dv7n31uydHhu4U9yzcH//86KFfnj92ovjT28sm3tm3
+pX901bO/fd10uf1m+6UvJlrfvbZk29NDn3y75qM/Bsdnhv1H2vI7L9RtOLBu3f5n
+dtxYnb2v/uDN0rFx/GHj2ZYVT7V11j3455VCzJZO7Fq492/d1fhZPJV/r2v8H7NQ
+Siw=
+=/NY5
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/erikbrinkman
+
+==================================================================
