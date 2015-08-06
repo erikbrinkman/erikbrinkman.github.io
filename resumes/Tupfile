@@ -1,0 +1,3 @@
+!latex = |> lualatex --draftmode --interaction nonstopmode %f && lualatex --interaction nonstopmode %f && rm -f %B.log %B.out %B.aux |> %B.pdf
+
+: resume.tex |> !latex |>
