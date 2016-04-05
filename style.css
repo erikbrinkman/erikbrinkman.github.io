@@ -215,11 +215,11 @@ h1, h2 {
 }
 
 .gmail-icon {
-    background-image: url('../img/gmail-square.svg#svgView(viewBox(32, 0, 32, 32))');
+    background-image: url('../img/email-at-square.svg#svgView(viewBox(32, 0, 32, 32))');
 }
 
 .gmail-icon:active, .gmail-icon:hover, .gmail-icon-color {
-    background-image: url('../img/gmail-square.svg');
+    background-image: url('../img/email-at-square.svg');
 }
 
 /* News list */
