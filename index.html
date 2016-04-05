@@ -27,8 +27,7 @@
         
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400|Roboto+Condensed|Roboto+Slab"
               rel="stylesheet" type="text/css">
-        <link rel="stylesheet" type="text/css" href="/styles/normalize.min.css">
-        <link rel="stylesheet" type="text/css" href="/styles/main.min.css">
+        <link rel="stylesheet" type="text/css" href="/style.css">
     </head>
     <body>
 	<div class="background">
@@ -36,8 +35,8 @@
 	
 	<div class="all-content">
 	  <nav>
-	    <a href="#home">
-	      <img class="main-img" src="/img/portrait.jpg"/>
+	    <a href="#home" class="main-img">
+	      <img src="/img/portrait.jpg"/>
 	    </a>
 	    <ul class="social-list">
 	      <li><a href="https://scholar.google.com/citations?user=4CerxXxb7KAC" target="_blank" class="scholar-icon"></a></li>
@@ -116,7 +115,7 @@
 	      <h2>Publications</h2>
               <ul class="block-list">
                 <li class="filterable expandable">
-                  <h3>Signal Structure and Strategic Information Acquisition</h3>
+                  <h3 class="expandable-target">Signal Structure and Strategic Information Acquisition</h3>
                   <div class="collapsed">The ability to gather information can
                     affect outcomes in auctions and other games of incomplete
                     information. We investigate situations where agents have a
@@ -222,9 +221,9 @@
 	  </main>
 	</div>
         <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <script src="/scripts/pleb-search-1.0.0.min.js"></script>
-        <script src="/scripts/canvas-mail-2.0.min.js"></script>
-        <script src="/scripts/main.min.js"></script>
+        <script src="/canvas-mail-2.0.min.js"></script>
+        <script src="/pleb-search-1.0.0.min.js"></script>
+        <script src="/script.js"></script>
         <script>
           // Canvas Mail
           $(".mail").link_mail("erik.brinkman", "gmail.com");
