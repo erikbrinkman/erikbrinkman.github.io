@@ -16,6 +16,24 @@ window.addEventListener('load', () => {
         });
     }
 
+    // Citations
+    var citeables = document.querySelectorAll('.has-citation');
+    for (var i = 0; i < citeables.length; i++) {
+        var citation = citeables[i].querySelector('.citation');
+        citeables[i].querySelector('.citation-link').addEventListener('click', event => {
+            citation.classList.add('active');
+        });
+    }
+    var citations = document.querySelectorAll('.citation');
+    for (var i = 0; i < citations.length; i++) {
+        var citation = citations[i];
+        citation.addEventListener('click', event => {
+            if (event.target == citation) {
+                citation.classList.remove('active');
+            }
+        });
+    }
+
     // Nav Links
     var navLinks = Array.from(document.querySelectorAll('nav .nav-list a'));
     var targets = navLinks.map(link => link.hash);
