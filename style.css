@@ -34,30 +34,38 @@ body {
 
 body {
     position: relative;
-    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    font-family: Roboto;
     font-weight: 300;
     background-color: white;
     box-sizing: border-box;
     min-height: 100%;
 }
 
-nav {
-    display: none;
-    position: fixed;
-    width: 30%;
-    height: 100%;
+#nav-background {
     background-color: #f0f0f0;
-    overflow-y: auto;
-    padding: 1.5rem;
-    box-sizing: border-box;
+    position: fixed;
+    height: 100%;
+    width: 30%;
+    left: calc(-30% - 0.2rem);
+    transition: left 0.2s ease;
     box-shadow: 0.2rem 0 0.2rem 0rem rgba(0, 0, 0, 0.25);
 }
 
-main {
+nav {
+    width: 100%;
+    height: 100%;
     overflow-y: auto;
+    padding: 1.5rem;
+    box-sizing: border-box;
+    margin-left: auto;
+}
+
+main {
+    width: 100%;
     padding: 0 1.5rem 1.5rem 1.5rem;
     box-sizing: border-box;
     background-color: white;
+    transition: width 0.2s ease, margin-left 0.2s ease;
 }
 
 a {
@@ -399,13 +407,14 @@ h1, h2 {
 /* Media queries */
 @media only screen and (min-width: 45rem) {
     /* Style adjustments for small desktops / tablets */
-    nav {
-        display: block;
+    #nav-background {
+        left: 0;
     }
 
     main {
         margin-left: 30%;
-        padding: 0 3rem 1.5rem 3rem;	
+        width: 70%;
+        padding: 0 3rem 1.5rem 3rem;
     }
 
     main section:last-child {
@@ -419,12 +428,17 @@ h1, h2 {
 
 @media only screen and (min-width: 60rem) {
     /* Style adjustments for large desktop */
+    #nav-background {
+        width: calc(50% - 12rem);
+    }
+
     nav {
         width: 18rem;
     }
 
-    .background {
-        display: block;
+    main {
+        margin-left: calc(50% - 12rem);
+        width: 42rem;
     }
 }
 

@@ -5,11 +5,9 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <script>
          // Java script to redirect to https. Flawed solution.
-         (function() {
-             if (("erikbrinkman.github.io" == window.location.host)
-                     && (window.location.protocol != "https:"))
-                 window.location.protocol = "https";
-         })();
+if ((window.location.host === 'erikbrinkman.github.io') && (window.location.protocol != "https:")) {
+    window.location.protocol = "https";
+}
         </script>
 
         <title>Erik Brinkman</title>
@@ -28,111 +26,114 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400|Roboto+Condensed|Roboto+Slab"
               rel="stylesheet" type="text/css">
         <link rel="stylesheet" type="text/css" href="/style.css">
+
+        <script defer src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script defer src="canvas-mail-2.0.min.js"></script>
+        <script defer src="pleb-search-1.0.0.min.js"></script>
+        <script defer src="script.js"></script>
     </head>
     <body>
-	<div class="background">
-	</div>
-	
-	<div class="all-content">
-	  <nav>
-	    <a href="#home" class="main-img">
-	      <img src="/img/portrait.jpg"/>
-	    </a>
-	    <ul class="social-list">
-	      <li><a href="https://scholar.google.com/citations?user=4CerxXxb7KAC" target="_blank" class="scholar-icon"></a></li>
-	      <li><a href="https://github.com/erikbrinkman"
-	             target="_blank" class="github-icon"></a></li>
-              <li><a href="https://www.linkedin.com/in/erikbrinkman"
-                     target="_blank" class="linkedin-icon"></a></li>
-	      <li><a href="https://plus.google.com/u/0/+erikbrinkman"
-	             target="_blank" class="google-plus-icon"></a></li>
-	      <li><a target="_blank" class="gmail-icon mail"></a></li>
-	    </ul>
-	    <input type="search" placeholder="Search" class="filter"
-                   autofocus="autofocus" />
-	    <ul class="nav-list">
-	      <li><a href="#home">About</a></li>
-	      <li><a href="#news">News</a></li>
-	      <li><a href="#publications">Publications</a></li>
-	      <li><a href="#projects">Projects</a></li>
-	      <li><a href="#misc">Misc</a></li>
-	    </ul>
-	  </nav>
-	  
-	  <main>
-	    <section id="home">
-	      <h1><img src="img/monogram.svg" /> Erik Brinkman</h1>
-              
-              <img class="mobile-img mobile" src="img/portrait.jpg" />
+        <div id="nav-background">
+            <nav>
+                <a href="#home" class="main-img">
+                    <img src="/img/portrait.jpg"/>
+                </a>
+                <ul class="social-list">
+                    <li><a href="https://scholar.google.com/citations?user=4CerxXxb7KAC" target="_blank" class="scholar-icon"></a></li>
+                    <li><a href="https://github.com/erikbrinkman"
+                           target="_blank" class="github-icon"></a></li>
+                    <li><a href="https://www.linkedin.com/in/erikbrinkman"
+                           target="_blank" class="linkedin-icon"></a></li>
+                    <li><a href="https://plus.google.com/u/0/+erikbrinkman"
+                           target="_blank" class="google-plus-icon"></a></li>
+                    <li><a target="_blank" class="gmail-icon mail"></a></li>
+                </ul>
+                <input type="search" placeholder="Search" class="filter"
+                                                          autofocus="autofocus" />
+                <ul class="nav-list">
+                    <li><a href="#home">About</a></li>
+                    <li><a href="#news">News</a></li>
+                    <li><a href="#publications">Publications</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#misc">Misc</a></li>
+                </ul>
+            </nav>
+        </div>
 
-	      <p>I am a PhD in <a href="https://www.eecs.umich.edu/"
-	        target="_blank">Computer Science at the University of
-	        Michigan</a>, advised
-	        by <a href="http://strategicreasoning.org/michael-p-wellman/"
-            target="_blank">Michael Wellman</a>. My research interests include
-            games with endogenous information acquisition, empirical game
-            solving, agent-based modeling applied to the finance, and general
-            machine learning.</p>
-              
-              <ul class="link-list">
+        <main>
+        <section id="home">
+            <h1><img src="img/monogram.svg" /> Erik Brinkman</h1>
+
+            <img class="mobile-img mobile" src="img/portrait.jpg" />
+
+            <p>I am a PhD in <a href="https://www.eecs.umich.edu/"
+                                target="_blank">Computer Science at the University of
+                                Michigan</a>, advised
+                            by <a href="http://strategicreasoning.org/michael-p-wellman/"
+                                  target="_blank">Michael Wellman</a>. My research interests include
+                              games with endogenous information acquisition, empirical game
+                              solving, agent-based modeling applied to the finance, and general
+                              machine learning.</p>
+
+            <ul class="link-list">
                 <li><a href="/resumes/resume.pdf" target="_blank">resume</a></li>
-              </ul>
-	    </section>
+            </ul>
+        </section>
 
-	    <section id="news" class="filterable">
-	      <h2>News</h2>
-              <!-- TODO tables don't filter like other block elements. Find a
-              way to get smooth transitions with table rows, or move to a
-              different format... Potentially just fix the width of the indent
-              and go back to a description list... -->
-              <table class="news">
-                <tbody>
-                  <tr class="filterable">
-                    <td>2015 April</td><td>I am working
-                    at <a href="//yelp.com">Yelp</a> this summer on their Ad
-                    Targeting team.</td>
-                  </tr>
-                  <tr class="filterable">
-                    <td>2015 April</td><td>My team, Waffles, placed 1st at
-                    <a gref="//www.collegepuzzlechallenge.com/">MS CPC</a>
-                    Michigan!</td>
-                  </tr>
-                  <tr class="filterable">
-                    <td>2014 July</td><td>I am officially a PhD Candidate!</td>
-                  </tr>
-                  <tr class="filterable">
-                    <td>2014 May</td><td>I am working
-                      at <a href="https://www.elance-odesk.com/"
-                      target="_blank">Elance-oDesk</a> over the summer working
-                      on search rank optimization on their Data Science
-                      team.</td>
-                  </tr>
-                  </tbody>
-              </table>
-	    </section>
+        <section id="news" class="filterable">
+            <h2>News</h2>
+            <!-- TODO tables don't filter like other block elements. Find a
+                way to get smooth transitions with table rows, or move to a
+                different format... Potentially just fix the width of the indent
+                and go back to a description list... -->
+                <table class="news">
+                    <tbody>
+                        <tr class="filterable">
+                            <td>2015 April</td><td>I am working
+                                at <a href="//yelp.com">Yelp</a> this summer on their Ad
+                                Targeting team.</td>
+                        </tr>
+                        <tr class="filterable">
+                            <td>2015 April</td><td>My team, Waffles, placed 1st at
+                                <a gref="//www.collegepuzzlechallenge.com/">MS CPC</a>
+                                Michigan!</td>
+                        </tr>
+                        <tr class="filterable">
+                            <td>2014 July</td><td>I am officially a PhD Candidate!</td>
+                        </tr>
+                        <tr class="filterable">
+                            <td>2014 May</td><td>I am working
+                                at <a href="https://www.elance-odesk.com/"
+                                      target="_blank">Elance-oDesk</a> over the summer working
+                                  on search rank optimization on their Data Science
+                                  team.</td>
+                        </tr>
+                    </tbody>
+                </table>
+        </section>
 
-	    <section id="publications" class="filterable">
-	      <h2>Publications</h2>
-              <ul class="block-list">
+        <section id="publications" class="filterable">
+            <h2>Publications</h2>
+            <ul class="block-list">
                 <li class="filterable expandable has-citation">
-                  <h3 class="expandable-target">Signal Structure and Strategic Information Acquisition</h3>
-                  <div class="collapsed">The ability to gather information can
-                    affect outcomes in auctions and other games of incomplete
-                    information. We investigate situations where agents have a
-                    choice about which information, or signals, to observe, and
-                    are informed about the signal choices of others. Our models
-                    cover common-value games where agents decide whether to
-                    coordinate on observed information, and games mixing
-                    private- and common-value components. We find that the
-                    dependence structure among available signals can produce
-                    qualitatively distinct behaviors in equilibrium, including
-                    some cases where strategic agents implicitly collude to
-                    acquire less than maximally informative signal
-                    combinations.</div>
-                  <div>E. Brinkman, M. P. Wellman, S. E. Page</div>
-                  <div>AAMAS 2014</div>
-                  <div class="citation">
-                      <pre>
+                    <h3 class="expandable-target">Signal Structure and Strategic Information Acquisition</h3>
+                    <div class="collapsed">The ability to gather information can
+                        affect outcomes in auctions and other games of incomplete
+                        information. We investigate situations where agents have a
+                        choice about which information, or signals, to observe, and
+                        are informed about the signal choices of others. Our models
+                        cover common-value games where agents decide whether to
+                        coordinate on observed information, and games mixing
+                        private- and common-value components. We find that the
+                        dependence structure among available signals can produce
+                        qualitatively distinct behaviors in equilibrium, including
+                        some cases where strategic agents implicitly collude to
+                        acquire less than maximally informative signal
+                        combinations.</div>
+                    <div>E. Brinkman, M. P. Wellman, S. E. Page</div>
+                    <div>AAMAS 2014</div>
+                    <div class="citation">
+                        <pre>
 @inproceedings{brinkman2014signal,
   title={Signal Structure and Strategic Information Acquisition: Deliberative Auctions with Interdependent Values},
   author={Brinkman, Erik and Wellman, Michael P and Page, Scott E},
@@ -141,108 +142,99 @@
   year={2014},
   organization={International Foundation for Autonomous Agents and Multiagent Systems}
 }</pre>
-                  </div>
-                  <ul class="link-list">
-                    <li><a href="//aamas2014.lip6.fr/proceedings/aamas/p229.pdf"
-                           target="_blank">pdf</a></li>
-                    <li><a href="//deepblue.lib.umich.edu/handle/2027.42/102737"
-                           target="_blank">appendix</a></li>
-                    <li><a class="citation-link">cite</a></li>
-                    <!--<li><a href="#">tex</a></li>-->
-                  </ul>
-                  <!-- This will be "indexed" by the search -->
-                  <div class="hidden">Erik Brinkman Michael P Wellman Scott E
-                    Page</div>
+                    </div>
+                    <ul class="link-list">
+                        <li><a href="//aamas2014.lip6.fr/proceedings/aamas/p229.pdf"
+                               target="_blank">pdf</a></li>
+                        <li><a href="//deepblue.lib.umich.edu/handle/2027.42/102737"
+                               target="_blank">appendix</a></li>
+                        <li><a class="citation-link">cite</a></li>
+                        <!--<li><a href="#">tex</a></li>-->
+                    </ul>
+                    <!-- This will be "indexed" by the search -->
+                    <div class="hidden">Erik Brinkman Michael P Wellman Scott E
+                        Page</div>
                 </li>
-	    </section>
+        </section>
 
-	    <section id="projects" class="filterable">
-	      <h2>Projects</h2>
-              <ul class="block-list">
+        <section id="projects" class="filterable">
+            <h2>Projects</h2>
+            <ul class="block-list">
                 <li class="filterable">
-                  <h3>Postly</h3>
-                  <div>An HTML / CSS / Javascript template for creating academic posters.
-                  </div>
-                  <ul class="link-list">
-                    <li><a href="https://github.com/erikbrinkman/postly"
-                           target="_blank">git</a></li>
-                  </ul>
-                </li>
-
-                <li class="filterable">
-                  <h3>PyNames</h3>
-                  <div>A name generator for python packages so they contain the
-                      substring "py".  </div>
-                  <ul class="link-list">
-                    <li><a href="http://erikbrinkman.github.io/pynames"
-                           target="_blank">page</a></li>
-                    <li><a href="https://github.com/erikbrinkman/pynames"
-                           target="_blank">git</a></li>
-                  </ul>
+                    <h3>Postly</h3>
+                    <div>An HTML / CSS / Javascript template for creating academic posters.
+                    </div>
+                    <ul class="link-list">
+                        <li><a href="https://github.com/erikbrinkman/postly"
+                               target="_blank">git</a></li>
+                    </ul>
                 </li>
 
                 <li class="filterable">
-                  <h3>Great Lakes Distance</h3>
-                  <div>A visualization of how far you can be from the great
-                      lakes in any state, created using D3.
-                  </div>
-                  <ul class="link-list">
-                    <li><a href="http://erikbrinkman.github.io/great-lakes-distance"
-                           target="_blank">page</a></li>
-                    <li><a href="https://github.com/erikbrinkman/great-lakes-distance"
-                           target="_blank">git</a></li>
-                  </ul>
+                    <h3>PyNames</h3>
+                    <div>A name generator for python packages so they contain the
+                        substring "py".  </div>
+                    <ul class="link-list">
+                        <li><a href="http://erikbrinkman.github.io/pynames"
+                               target="_blank">page</a></li>
+                        <li><a href="https://github.com/erikbrinkman/pynames"
+                               target="_blank">git</a></li>
+                    </ul>
                 </li>
-              </ul>
-	    </section>
 
-            <!-- TODO Add icons to this list. Add a fluid grid somehow... -->
-	    <section id="contact" class="mobile">
-	      <h2>Contact Info</h2>
-              <div class="contact-wrapper">
-	        <ul class="social-list">
-	          <li><a href="https://scholar.google.com/citations?user=4CerxXxb7KAC" target="_blank" class="scholar-icon-color"></a></li>
-	          <li><a href="https://github.com/erikbrinkman"
-	                 target="_blank" class="github-icon-color"></a></li>
-                  <li><a href="https://www.linkedin.com/in/erikbrinkman"
-                         target="_blank" class="linkedin-icon-color"></a></li>
-	          <li><a href="https://plus.google.com/u/0/+erikbrinkman"
-	                 target="_blank" class="google-plus-icon-color"></a></li>
-	          <li><a target="_blank" class="gmail-icon-color mail"></a></li>
-	        </ul>
-              </div>
-	    </section>
+                <li class="filterable">
+                    <h3>Great Lakes Distance</h3>
+                    <div>A visualization of how far you can be from the great
+                        lakes in any state, created using D3.
+                    </div>
+                    <ul class="link-list">
+                        <li><a href="http://erikbrinkman.github.io/great-lakes-distance"
+                               target="_blank">page</a></li>
+                        <li><a href="https://github.com/erikbrinkman/great-lakes-distance"
+                               target="_blank">git</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
 
-	    <section id="misc" class="filterable">
-	      <h2>Misc</h2>
-	      <p>Thanks to <a href="http://vision.ucsd.edu/~cwah/"
-	                      target="_blank">Catherine Wah</a> for inspiring
-	                      the design of this
-	                      website, <a href="//cargocollective.com/alisonwilcox"
-	                      target="_blank">Alison Wilcox</a> for helping
-	                      with the general design and the logo,
-	                      and <a href="https://html5boilerplate.com/"
-	                      target="_blank">HTML5 boilerplate</a> for
-	                      providing a boilerplate.</p>
-	    </section>
-	  </main>
-	</div>
-        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <script src="/canvas-mail-2.0.min.js"></script>
-        <script src="/pleb-search-1.0.0.min.js"></script>
-        <script src="/script.js"></script>
-        <script>
-          // Canvas Mail
-          $(".mail").link_mail("erik.brinkman", "gmail.com");
-        </script>
+        <!-- TODO Add icons to this list. Add a fluid grid somehow... -->
+        <section id="contact" class="mobile">
+            <h2>Contact Info</h2>
+            <div class="contact-wrapper">
+                <ul class="social-list">
+                    <li><a href="https://scholar.google.com/citations?user=4CerxXxb7KAC" target="_blank" class="scholar-icon-color"></a></li>
+                    <li><a href="https://github.com/erikbrinkman"
+                           target="_blank" class="github-icon-color"></a></li>
+                    <li><a href="https://www.linkedin.com/in/erikbrinkman"
+                           target="_blank" class="linkedin-icon-color"></a></li>
+                    <li><a href="https://plus.google.com/u/0/+erikbrinkman"
+                           target="_blank" class="google-plus-icon-color"></a></li>
+                    <li><a target="_blank" class="gmail-icon-color mail"></a></li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="misc" class="filterable">
+            <h2>Misc</h2>
+            <p>Thanks to <a href="http://vision.ucsd.edu/~cwah/"
+                            target="_blank">Catherine Wah</a> for inspiring the
+                        design of this website, <a
+                            href="//cargocollective.com/alisonwilcox"
+                            target="_blank">Alison Wilcox</a> for helping with
+                        the general design and the logo, and <a
+                            href="https://html5boilerplate.com/"
+                            target="_blank">HTML5 boilerplate</a> for providing
+                        a boilerplate.</p>
+        </section>
+        </main>
         <!-- Google Analytics -->
         <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='https://www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-37133085-2');ga('send','pageview');
+(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+                                                        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+e.src='https://www.google-analytics.com/analytics.js';
+r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+ga('create','UA-37133085-2');ga('send','pageview');
         </script>
     </body>
 </html>
