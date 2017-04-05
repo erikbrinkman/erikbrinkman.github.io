@@ -1,78 +1,70 @@
 'use strict';
-window.addEventListener('load', () => {
-    // Filtering
-    PLEB_SEARCH.init('.filter', '.filterable', jQuery.fn.slideDown, jQuery.fn.slideUp);
+(function() {
+    // Clipboard
+    const snackbar = document.querySelector('#clipboard-snackbar');
+    const clipboard = new Clipboard('.citation-btn');
 
-    // Click to expand
-    var expandables = document.querySelectorAll('.block-list > li.expandable');
-    for (var i = 0; i < expandables.length; i++) {
-        var expandable = expandables[i];
-        expandable.querySelector('.expandable-target').addEventListener('click', event => {
-            expandable.classList.toggle('expanded');
-            var toExpand = expandable.querySelectorAll('.collapsed');
-            for (var j = 0; j < toExpand.length; j++) {
-                $(toExpand[j]).slideToggle()
-            }
+    clipboard.on('success', _ => {
+        snackbar.MaterialSnackbar.showSnackbar({
+            message: 'Copied bibtex citation to clipboard',
+            timeout: 2000,
         });
-    }
+    });
 
-    // Citations
-    var citeables = document.querySelectorAll('.has-citation');
-    for (var i = 0; i < citeables.length; i++) {
-        var citation = citeables[i].querySelector('.citation');
-        citeables[i].querySelector('.citation-link').addEventListener('click', event => {
-            citation.classList.add('active');
+    clipboard.on('error', _ => {
+        snackbar.MaterialSnackbar.showSnackbar({
+            message: 'Error attempting to copy citation to clipboard',
+            timeout: 2000,
         });
-    }
-    var citations = document.querySelectorAll('.citation');
-    for (var i = 0; i < citations.length; i++) {
-        var citation = citations[i];
-        citation.addEventListener('click', event => {
-            if (event.target == citation) {
-                citation.classList.remove('active');
-            }
-        });
-    }
+    });
 
-    // Nav Links
-    var navLinks = Array.from(document.querySelectorAll('nav .nav-list a'));
-    var targets = navLinks.map(link => link.hash);
-
-    // Smooth scrolling
-    navLinks.forEach(link => {
-        var target = document.querySelector(link.hash);
-        link.addEventListener('click', event => {
-            $('html, body').animate({scrollTop: target.offsetTop}, 600);
-            event.preventDefault();
-            return false;
-        });
+    // Expand card
+    document.querySelectorAll('.mdl-card').forEach(card => {
+        const btn = card.querySelector('.expand-btn');
+        if (btn) {
+            btn.addEventListener('click', _ => {
+                card.classList.toggle('collapsed');
+            });
+        }
     });
 
     // Color side bar with scrolling
-    window.addEventListener('scroll', event => {
-        var pos = window.scrollY;
-        var hash;
-        for (var target of targets) {
-            hash = target;
-            // -1 is a margin or error (e.g. less than a pix)
-            if (document.querySelector(target).getBoundingClientRect().top > -1) {
-                break;
-            }
-        }
+    var navLinks = Array.from(document.querySelectorAll('.nav-list a'));
+    var targets = navLinks.map(link => link.hash);
 
-        for (var link of navLinks) {
+    window.addEventListener('scroll', event => {
+        const pos = window.scrollY;
+        const hash = targets.filter(target => document.querySelector(target).getBoundingClientRect().top > -1)[0]
+        navLinks.forEach(link => {
             if (link.hash == hash) {
-                link.classList.add('active');
+                link.classList.add('mdl-button--colored');
             } else {
-                link.classList.remove('active');
+                link.classList.remove('mdl-button--colored');
             }
-        }
+        });
     });
 
     // All keypresses sent to search box
-    var searchBox = document.querySelector('.filter');
+    const searchBox = document.querySelector('#search');
     window.addEventListener('keypress', event => searchBox.focus());
+
+    // Filter on key press
+    const filterable = document.querySelectorAll('.filterable');
+    searchBox.addEventListener('input', _ => {
+        if (searchBox.value) {
+            const words = searchBox.value.toLowerCase().split(' ');
+            filterable.forEach(elem => {
+                if (words.map(w => elem.textContent.toLowerCase().includes(w)).reduce((a, b) => a || b)) {
+                    elem.classList.remove('filtered');
+                } else {
+                    elem.classList.add('filtered');
+                }
+            });
+        } else {
+            filterable.forEach(elem => elem.classList.remove('filtered'));
+        }
+    });
 
     // Trigger initial scroll event
     window.dispatchEvent(new Event('scroll'));
-});
+})();

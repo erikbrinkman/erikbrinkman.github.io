@@ -1,4 +1,4 @@
 erikbrinkman.github.io
 ======================
 
-Personal Website based on [HTML5 Boilerplate](http://html5boilerplate.com)
+Personal website based loosely on material design.
