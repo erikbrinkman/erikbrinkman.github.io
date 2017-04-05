@@ -19,7 +19,7 @@
     });
 
     // Expand card
-    document.querySelectorAll('.mdl-card').forEach(card => {
+    Array.from(document.querySelectorAll('.mdl-card')).forEach(card => {
         const btn = card.querySelector('.expand-btn');
         if (btn) {
             btn.addEventListener('click', _ => {
@@ -49,7 +49,7 @@
     window.addEventListener('keypress', event => searchBox.focus());
 
     // Filter on key press
-    const filterable = document.querySelectorAll('.filterable');
+    const filterable = Array.from(document.querySelectorAll('.filterable'));
     searchBox.addEventListener('input', _ => {
         if (searchBox.value) {
             const words = searchBox.value.toLowerCase().split(' ');
