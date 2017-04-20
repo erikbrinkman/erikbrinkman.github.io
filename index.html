@@ -34,16 +34,46 @@
                     <img src="/img/portrait.jpg"/>
                 </a>
                 <ul class="social-list">
-                    <li><a href="https://scholar.google.com/citations?user=4CerxXxb7KAC"
-                           target="_blank" class="scholar-icon"></a></li>
-                    <li><a href="https://github.com/erikbrinkman"
-                           target="_blank" class="github-icon"></a></li>
-                    <li><a href="https://www.linkedin.com/in/erikbrinkman"
-                           target="_blank" class="linkedin-icon"></a></li>
-                    <li><a href="https://plus.google.com/u/0/+erikbrinkman"
-                           target="_blank" class="google-plus-icon"></a></li>
-                    <li><a target="_blank" class="gmail-icon mail"
-                           href="mailto:erik.brinkman@gmail.com"></a></li>
+                    <li>
+                        <a href="https://scholar.google.com/citations?user=4CerxXxb7KAC"
+                           target="_blank" class="scholar-icon"
+                           id="scholar-icon-side"></a>
+                        <div class="mdl-tooltip" data-mdl-for="scholar-icon-side">
+                            Google Scholar
+                        </div>
+                    </li>
+                    <li>
+                        <a href="https://github.com/erikbrinkman"
+                           target="_blank" class="github-icon"
+                           id="github-icon-side"></a>
+                        <div class="mdl-tooltip" data-mdl-for="github-icon-side">
+                            Github
+                        </div>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/erikbrinkman"
+                           target="_blank" class="linkedin-icon"
+                           id="linkedin-icon-side"></a>
+                        <div class="mdl-tooltip" data-mdl-for="linkedin-icon-side">
+                            LinkedIn
+                        </div>
+                    </li>
+                    <li>
+                        <a href="https://plus.google.com/u/0/+erikbrinkman"
+                           target="_blank" class="google-plus-icon"
+                           id="google-plus-icon-side"></a>
+                        <div class="mdl-tooltip" data-mdl-for="google-plus-icon-side">
+                            Google Plus
+                        </div>
+                    </li>
+                    <li>
+                        <a href="mailto:erik.brinkman@gmail.com"
+                            target="_blank" class="gmail-icon"
+                            id="gmail-icon-side"></a>
+                        <div class="mdl-tooltip" data-mdl-for="gmail-icon-side">
+                            Email
+                        </div>
+                    </li>
                 </ul>
 
                 <div class="mdl-textfield mdl-js-textfield">
@@ -157,9 +187,10 @@
                 <div class="mdl-card__title">
                     <h3 class="mdl-card__title-text">Empirical Mechanism Design for Optimizing Clearing Interval in Frequent Call Markets</h3>
                     <div class="mdl-layout-spacer"></div>
-                    <button class="expand-btn mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                    <button id="ec-expand" class="expand-btn mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
                         <i class="material-icons">expand_more</i>
                     </button>
+                    <div class="mdl-tooltip abstract-expand-tooltip" data-mdl-for="ec-expand"></div>
                 </div>
                 <div class="mdl-card__supporting-text">
                     Several recent authors have advocated for financial markets
@@ -196,9 +227,10 @@
                 <div class="mdl-card__title">
                     <h3 class="mdl-card__title-text">Signal Structure and Strategic Information Acquisition</h3>
                     <div class="mdl-layout-spacer"></div>
-                    <button class="expand-btn mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                    <button id="aamas-expand" class="expand-btn mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
                         <i class="material-icons">expand_more</i>
                     </button>
+                    <div class="mdl-tooltip abstract-expand-tooltip" data-mdl-for="aamas-expand"></div>
                 </div>
                 <div class="mdl-card__supporting-text">
                     The ability to gather information can affect outcomes in
@@ -233,9 +265,12 @@
                        target="_blank" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
                         Appendix
                     </a>
-                    <a data-clipboard-text="@inproceedings{brinkman2014signal,&#10;title={Signal Structure and Strategic Information Acquisition: Deliberative Auctions with Interdependent Values},&#10;author={Brinkman, Erik and Wellman, Michael P and Page, Scott E},&#10;booktitle={Proceedings of the 2014 International Conference on Autonomous Agents and Multi-agent Systems},&#10;pages={229--236},&#10;year={2014},&#10;organization={International Foundation for Autonomous Agents and Multiagent Systems}&#10;}" class="citation-btn mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                    <a data-clipboard-text="@inproceedings{brinkman2014signal,&#10;title={Signal Structure and Strategic Information Acquisition: Deliberative Auctions with Interdependent Values},&#10;author={Brinkman, Erik and Wellman, Michael P and Page, Scott E},&#10;booktitle={Proceedings of the 2014 International Conference on Autonomous Agents and Multi-agent Systems},&#10;pages={229--236},&#10;year={2014},&#10;organization={International Foundation for Autonomous Agents and Multiagent Systems}&#10;}"
+                        class="citation-btn mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"
+                        id="aamas-cite">
                         Cite
                     </a>
+                    <div class="mdl-tooltip citation-tooltip" data-mdl-for="aamas-cite"></div>
                 </div>
             </div>
         </section>

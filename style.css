@@ -270,6 +270,19 @@ a::selection {
     transform: none;
 }
 
+/* Tooltips */
+.mdl-card .abstract-expand-tooltip::before {
+    content: "Hide abstract";
+}
+
+.mdl-card.collapsed .abstract-expand-tooltip::before {
+    content: "Show abstract";
+}
+
+.citation-tooltip::before {
+    content: "Copy bibtex to clipboard";
+}
+
 /* Search box */
 #search:focus {
     background-color: white;
