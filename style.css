@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
     font-family: 'Roboto', 'Helvetica', sans-serif;
     font-size: 1rem;
 }
@@ -7,7 +8,12 @@ body {
     overflow-y: scroll;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: 'Roboto Slab';
 }
 
@@ -90,13 +96,15 @@ main {
     text-shadow: none;
 }
 
-a, a.mdl-button.mdl-button--colored:not(.mdl-button--raised) {
+a,
+a.mdl-button.mdl-button--colored:not(.mdl-button--raised) {
     text-decoration: none;
     color: #9191e9;
     font-weight: 500;
 }
 
-.mdl-button--raised.mdl-button--colored, .mdl-button--raised.mdl-button--colored:hover {
+.mdl-button--raised.mdl-button--colored,
+.mdl-button--raised.mdl-button--colored:hover {
     background-color: #9191e9;
 }
 
@@ -112,7 +120,9 @@ a::selection {
     color: white;
 }
 
+
 /* Front matter */
+
 .title {
     font-size: 40px;
     padding-top: 1.5rem;
@@ -129,7 +139,9 @@ a::selection {
     margin-bottom: 14px;
 }
 
+
 /* Styling for the portrait image */
+
 .main-img {
     font-size: 0;
     display: block;
@@ -139,20 +151,22 @@ a::selection {
     width: 100%;
 }
 
+
 /* List of social media things */
+
 .social-list {
     padding: 0;
     font-size: 0;
 }
 
-.social-list > li {
+.social-list>li {
     display: inline-block;
     list-style-type: none;
     margin: 7.142858% 0 0 7.142858%;
     width: 14.285714%;
 }
 
-.social-list > li:first-child {
+.social-list>li:first-child {
     margin-left: 0;
 }
 
@@ -170,7 +184,9 @@ a::selection {
     background-image: url('../img/google-scholar.svg#svgView(viewBox(32, 0, 32, 32))');
 }
 
-.scholar-icon:active, .scholar-icon:hover, .scholar-icon-color {
+.scholar-icon:active,
+.scholar-icon:hover,
+.scholar-icon-color {
     background-image: url('../img/google-scholar.svg');
 }
 
@@ -178,7 +194,9 @@ a::selection {
     background-image: url('../img/github.svg#svgView(viewBox(32, 0, 32, 32))');
 }
 
-.github-icon:active, .github-icon:hover, .github-icon-color {
+.github-icon:active,
+.github-icon:hover,
+.github-icon-color {
     background-image: url('../img/github.svg');
 }
 
@@ -186,7 +204,9 @@ a::selection {
     background-image: url('../img/linkedin.svg#svgView(viewBox(32, 0, 32, 32))');
 }
 
-.linkedin-icon:active, .linkedin-icon:hover, .linkedin-icon-color {
+.linkedin-icon:active,
+.linkedin-icon:hover,
+.linkedin-icon-color {
     background-image: url('../img/linkedin.svg');
 }
 
@@ -194,7 +214,9 @@ a::selection {
     background-image: url('../img/google-plus.svg#svgView(viewBox(32, 0, 32, 32))');
 }
 
-.google-plus-icon:active, .google-plus-icon:hover, .google-plus-icon-color {
+.google-plus-icon:active,
+.google-plus-icon:hover,
+.google-plus-icon-color {
     background-image: url('../img/google-plus.svg');
 }
 
@@ -202,11 +224,15 @@ a::selection {
     background-image: url('../img/email-at-square.svg#svgView(viewBox(32, 0, 32, 32))');
 }
 
-.gmail-icon:active, .gmail-icon:hover, .gmail-icon-color {
+.gmail-icon:active,
+.gmail-icon:hover,
+.gmail-icon-color {
     background-image: url('../img/email-at-square.svg');
 }
 
+
 /* News list */
+
 .news {
     border: 0;
 }
@@ -216,7 +242,7 @@ a::selection {
     padding: 0.5rem 0 0 0;
 }
 
-.news tr:first-child > td {
+.news tr:first-child>td {
     padding-top: 0;
 }
 
@@ -228,12 +254,14 @@ a::selection {
     font-weight: 500;
 }
 
+
 /* Navigation list */
+
 .nav-list {
     margin: 0 -1.5rem;
 }
 
-.nav-list > li {
+.nav-list>li {
     padding: 0;
 }
 
@@ -242,7 +270,9 @@ a::selection {
     font-size: inherit;
 }
 
+
 /* List of material like cards */
+
 .mdl-card {
     margin-bottom: 24px;
     width: 100%;
@@ -270,7 +300,9 @@ a::selection {
     transform: none;
 }
 
+
 /* Tooltips */
+
 .mdl-card .abstract-expand-tooltip::before {
     content: "Hide abstract";
 }
@@ -283,7 +315,9 @@ a::selection {
     content: "Copy bibtex to clipboard";
 }
 
+
 /* Search box */
+
 #search:focus {
     background-color: white;
     padding: 9px 5px;

@@ -1,0 +1,157 @@
+html,
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 60rem;
+    box-sizing: border-box;
+    padding: 0 2rem;
+}
+
+h1 {
+    color: #9191e9;
+    font-weight: 300;
+    font-family: 'Roboto Slab', sans-serif;
+    margin: 0;
+    padding-top: 0.5em;
+}
+
+h2 {
+    font-size: 1em;
+    font-weight: 600;
+    font-family: 'Roboto Slab', sans-serif;
+}
+
+h1,
+h2 {
+    text-transform: uppercase;
+    margin-left: 15%;
+}
+
+h1,
+h2,
+h3 {
+    clear: both;
+}
+
+h3 .dates {
+    width: 7em;
+    font-style: italic;
+    flex-shrink: 0;
+}
+
+h3 .location {
+    order: 3;
+    font-variant: small-caps;
+    margin-left: 0.75em;
+    flex-shrink: 0;
+}
+
+h3 .block-title {
+    flex-grow: 1;
+    font-size: 1.2em;
+}
+
+a {
+    text-decoration: none;
+    color: #9191e9;
+}
+
+h3.block-header {
+    font-size: 1em;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    font-weight: normal;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+ul.skill-list {
+    list-style-type: square;
+    box-sizing: border-box;
+    padding-left: 1.2em;
+    text-align: justify;
+    margin: 0;
+}
+
+.sep-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: inline;
+}
+
+.sep-list>li {
+    display: inline;
+    white-space: nowrap;
+}
+
+.sep-list>li:not(:last-child):after {
+    white-space: normal;
+    content: "\00a0· ";
+}
+
+.personal-info {
+    font-size: 1.3rem;
+}
+
+.block-content {
+    display: flex;
+    flex-directon: row;
+    justify-content: space-between;
+    margin-bottom: 0.5em;
+}
+
+.block-content>.left {
+    width: 10%;
+    order: 0;
+    font-style: italic;
+    text-align: right;
+}
+
+.block-content>.right {
+    width: 80%;
+    order: 1;
+}
+
+.block-header {
+    margin-left: 20%;
+    display: block;
+}
+
+.it {
+    font-style: italic;
+}
+
+@media print {
+    html,
+    body {
+        font-size: 10pt;
+        font-family: serif;
+    }
+
+    h1,
+    h2 {
+        font-family: 'Crimson Text', serif;
+    }
+
+    h1,
+    h2,
+    h3,
+    .block-header {
+        page-break-after: avoid;
+    }
+
+    .block-content {
+        page-break-inside: avoid;
+    }
+}
