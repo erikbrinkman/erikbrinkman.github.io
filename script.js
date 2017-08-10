@@ -52,7 +52,7 @@
     const filterable = Array.from(document.querySelectorAll('.filterable'));
     searchBox.addEventListener('input', _ => {
         if (searchBox.value) {
-            const words = searchBox.value.toLowerCase().split(' ');
+            const words = searchBox.value.toLowerCase().split(' ').filter(word => word);
             filterable.forEach(elem => {
                 if (words.map(w => elem.textContent.toLowerCase().includes(w)).reduce((a, b) => a || b)) {
                     elem.classList.remove('filtered');
