@@ -71,6 +71,7 @@ main {
         height: 100vh;
         width: calc(70% - 6rem);
         position: absolute;
+        z-index: -1;
     }
 
     .small-screen-only {
