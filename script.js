@@ -65,6 +65,6 @@
         }
     });
 
-    // Trigger initial scroll event
+    // Trigger initial scroll event for coloring
     window.dispatchEvent(new Event('scroll'));
 })();
