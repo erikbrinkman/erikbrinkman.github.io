@@ -277,6 +277,8 @@ a::selection {
 .nav-list a {
     padding: 1.5em;
     font-size: inherit;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
 }
 
 
