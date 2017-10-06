@@ -1,19 +1,39 @@
 'use strict';
 (function() {
-    // Clipboard
+    // Clipboards
     const snackbar = document.querySelector('#clipboard-snackbar');
-    const clipboard = new Clipboard('.citation-btn');
 
-    clipboard.on('success', _ => {
+    const citeClipboard = new Clipboard('.citation-btn');
+    citeClipboard.on('success', _ => {
         snackbar.MaterialSnackbar.showSnackbar({
             message: 'Copied bibtex citation to clipboard',
             timeout: 2000,
         });
     });
-
-    clipboard.on('error', _ => {
+    citeClipboard.on('error', _ => {
         snackbar.MaterialSnackbar.showSnackbar({
             message: 'Error attempting to copy citation to clipboard',
+            timeout: 2000,
+        });
+    });
+
+    const linkClipboard = new Clipboard('.permalink', {
+      text: trigger => {
+        while (!trigger.id) {
+          trigger = trigger.parentElement;
+        }
+        return location.href.replace(location.hash,'') + '#' + trigger.id;
+      },
+    });
+    linkClipboard.on('success', _ => {
+        snackbar.MaterialSnackbar.showSnackbar({
+            message: 'Copied link to clipboard',
+            timeout: 2000,
+        });
+    });
+    linkClipboard.on('error', _ => {
+        snackbar.MaterialSnackbar.showSnackbar({
+            message: 'Error attempting to copy link to clipboard',
             timeout: 2000,
         });
     });

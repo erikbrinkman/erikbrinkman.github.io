@@ -18,8 +18,27 @@ h6 {
     font-family: 'Roboto Slab';
 }
 
+h3 {
+    flex-grow: 1;
+}
+
 h2 {
     font-size: 30px;
+}
+
+.permalink {
+    margin: auto 0.2em;
+    color: #9191e9;
+    cursor: pointer;
+    visibility: hidden;
+}
+
+.permalink:hover {
+    text-decoration: underline;
+}
+
+*:hover > .permalink {
+    visibility: visible;
 }
 
 #nav-background {
