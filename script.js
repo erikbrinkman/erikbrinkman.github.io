@@ -1,51 +1,66 @@
 'use strict';
 (function () {
-  // Clipboards
-  const snackbar = document.querySelector('#clipboard-snackbar');
-
-  const citeClipboard = new Clipboard('.citation-btn');
-  citeClipboard.on('success', _ => {
-    snackbar.MaterialSnackbar.showSnackbar({
-      message: 'Copied bibtex citation to clipboard',
-      timeout: 2000,
-    });
-  });
-  citeClipboard.on('error', _ => {
-    snackbar.MaterialSnackbar.showSnackbar({
-      message: 'Error attempting to copy citation to clipboard',
-      timeout: 2000,
-    });
-  });
-
-  const linkClipboard = new Clipboard('.permalink', {
-    text: trigger => {
-      while (!trigger.id) {
-        trigger = trigger.parentElement;
+  // Citation
+  const snackbar = new mdc.snackbar.MDCSnackbar(document.querySelector('#clipboard-snackbar'));
+  const dialog = new mdc.dialog.MDCDialog(document.querySelector('#cite-dialog'));
+  const bibtex = document.querySelector('#bibtex');
+  let devt = null;
+  bibtex.addEventListener('mousedown', (evt) => {
+    devt = evt;
+  })
+  bibtex.addEventListener('mouseup', (uevt) => {
+    if (uevt && devt.pageX === uevt.pageX && devt.pageY === uevt.pageY) {
+      const range = document.createRange()
+      range.selectNode(bibtex);
+      const select = getSelection();
+      select.empty();
+      select.addRange(range);
+    }
+  })
+  document.querySelector('#copy-to-clipboard').addEventListener('click', () => {
+    try {
+      const range = document.createRange()
+      range.selectNode(bibtex);
+      const select = getSelection();
+      select.empty();
+      select.addRange(range);
+      if (document.execCommand('copy')) {
+        snackbar.show({
+          message: 'Copied citation to clipboard',
+          timeout: 2000,
+        });
+      } else {
+        snackbar.show({
+          message: 'Failed copying citation to clipboard',
+          timeout: 2000,
+        });
       }
-      return location.href.replace(location.hash, '') + '#' + trigger.id;
-    },
-  });
-  linkClipboard.on('success', _ => {
-    snackbar.MaterialSnackbar.showSnackbar({
-      message: 'Copied link to clipboard',
-      timeout: 2000,
-    });
-  });
-  linkClipboard.on('error', _ => {
-    snackbar.MaterialSnackbar.showSnackbar({
-      message: 'Error attempting to copy link to clipboard',
-      timeout: 2000,
-    });
-  });
-
-  // Expand card
-  Array.from(document.querySelectorAll('.mdl-card')).forEach(card => {
-    const btn = card.querySelector('.expand-btn');
-    if (btn) {
-      btn.addEventListener('click', _ => {
-        card.classList.toggle('collapsed');
+      select.empty();
+    } catch (err) {
+      console.error(err);
+      snackbar.show({
+        message: "Browser doesn't support copying",
+        timeout: 2000,
       });
     }
+  });
+  [].forEach.call(document.querySelectorAll('.citation-button'), button => {
+    const citation = button.querySelector('.bibtex-citation').textContent;
+    button.addEventListener('click', evt => {
+      bibtex.textContent = citation;
+      dialog.show();
+    });
+  });
+
+  // Expand descriptions
+  [].forEach.call(document.querySelectorAll('.collapsed'), card => {
+    const button = card.querySelector('.expand-button');
+    button.addEventListener('click', _ => {
+      card.classList.toggle('collapsed');
+      const newTitle = button.getAttribute('data-title');
+      button.setAttribute('data-title', button.getAttribute('title'))
+      button.setAttribute('title', newTitle);
+    });
   });
 
   // Color side bar with scrolling
@@ -54,40 +69,36 @@
 
   window.addEventListener('scroll', event => {
     const pos = window.scrollY;
-    const hash = targets.filter(target => document.querySelector(target).getBoundingClientRect()
-      .top > -1)[0]
+    const hash = targets.filter(target =>
+      document.querySelector(target).getBoundingClientRect().top > -1)[0]
     navLinks.forEach(link => {
       if (link.hash == hash) {
-        link.classList.add('mdl-button--colored');
+        link.classList.remove('nav-list--inactive');
       } else {
-        link.classList.remove('mdl-button--colored');
+        link.classList.add('nav-list--inactive');
       }
     });
   });
 
-  // All keypresses sent to search box
-  const searchBox = document.querySelector('#search');
-  window.addEventListener('keypress', event => searchBox.focus());
-
-  // Filter on key press
-  const filterable = Array.from(document.querySelectorAll('.filterable'));
-  searchBox.addEventListener('input', _ => {
-    if (searchBox.value) {
-      const words = searchBox.value.toLowerCase().split(' ').filter(word =>
-        word);
-      filterable.forEach(elem => {
-        if (words.map(w => elem.textContent.toLowerCase().includes(w))
-          .reduce((a, b) => a || b)) {
-          elem.classList.remove('filtered');
-        } else {
-          elem.classList.add('filtered');
-        }
-      });
-    } else {
-      filterable.forEach(elem => elem.classList.remove('filtered'));
-    }
-  });
+  // Initialize mdc
+  window.mdc.autoInit();
 
   // Trigger initial scroll event for coloring
   window.dispatchEvent(new Event('scroll'));
+
+  // Google analytics
+  (function (b, o, i, l, e, r) {
+    b.GoogleAnalyticsObject = l;
+    b[l] || (b[l] =
+        function () {
+          (b[l].q = b[l].q || []).push(arguments)
+        });
+    b[l].l = +new Date;
+    e = o.createElement(i);
+    r = o.getElementsByTagName(i)[0];
+    e.src = 'https://www.google-analytics.com/analytics.js';
+    r.parentNode.insertBefore(e, r)
+  }(window, document, 'script', 'ga'));
+  ga('create', 'UA-37133085-2');
+  ga('send', 'pageview');
 })();

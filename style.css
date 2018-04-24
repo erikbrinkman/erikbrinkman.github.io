@@ -1,45 +1,42 @@
-html,
-body {
+@import url('https://fonts.googleapis.com/css?family=Varela');
+
+/** Page styling */
+:root {
   font-family: 'Roboto', 'Helvetica', sans-serif;
   font-size: 1rem;
+
+  --mdc-theme-primary: #9191e9;
+  --mdc-theme-background: #fff;
+}
+
+.title {
+  font-family: 'Varela';
+  font-weight: 600;
+}
+
+h2.title {
+  padding: 0.5em 0;
+  margin: 0.33em 0;
 }
 
 body {
-  overflow-y: scroll;
+  overflow-y: overlay;
+  overflow-x: hidden;
   scroll-behavior: smooth;
+  margin: 0;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: 'Roboto Slab';
+::selection {
+  background: var(--mdc-theme-primary);
+  text-shadow: none;
 }
 
-h3 {
-  flex-grow: 1;
+/* Snackbar FOUC */
+.mdc-snackbar {
+  transform: translateY(100%);
 }
 
-h2 {
-  font-size: 30px;
-}
-
-.permalink {
-  margin: auto 0.2em;
-  color: #9191e9;
-  cursor: pointer;
-  visibility: hidden;
-}
-
-.permalink:hover {
-  text-decoration: underline;
-}
-
-*:hover>.permalink {
-  visibility: visible;
-}
+/** Control the layout with side bar etc */
 
 #nav-background {
   background-color: #f0f0f0;
@@ -47,14 +44,14 @@ h2 {
   height: 100%;
   width: 30%;
   left: calc(-30% - 20px);
-  transition: left 0.2s ease;
+  padding: 10rem 0;
+  top: -10rem;
 }
 
 nav {
   width: 100%;
   height: 100%;
   overflow-y: auto;
-  padding: 1.5rem;
   box-sizing: border-box;
   margin-left: auto;
 }
@@ -63,8 +60,6 @@ main {
   width: 100%;
   padding: 0 1.5rem 1.5rem 1.5rem;
   box-sizing: border-box;
-  background-color: white;
-  transition: width 0.2s ease, margin-left 0.2s ease;
 }
 
 .small-screen-img {
@@ -119,28 +114,19 @@ main {
   }
 }
 
-::selection {
-  background: #9191e9;
-  text-shadow: none;
-}
+/** Links */
 
-a,
-a.mdl-button.mdl-button--colored:not(.mdl-button--raised) {
+a {
   text-decoration: none;
-  color: #9191e9;
+  color: var(--mdc-theme-primary);
   font-weight: 500;
-}
-
-.mdl-button--raised.mdl-button--colored,
-.mdl-button--raised.mdl-button--colored:hover {
-  background-color: #9191e9;
 }
 
 a:focus {
   outline: 0;
 }
 
-a:hover:not(.mdl-button):hover {
+a:hover:not(.mdc-button,mdc-card__action) {
   text-decoration: underline;
 }
 
@@ -148,11 +134,9 @@ a::selection {
   color: white;
 }
 
+/** Front matter */
 
-
-/* Front matter */
-
-.title {
+#home .title {
   font-size: 40px;
   padding-top: 1.5rem;
   margin-top: 0;
@@ -164,13 +148,7 @@ a::selection {
   margin-right: 0.15em;
 }
 
-.intro {
-  margin-bottom: 14px;
-}
-
-
-
-/* Styling for the portrait image */
+/** Styling for the portrait image */
 
 .main-img {
   font-size: 0;
@@ -179,25 +157,27 @@ a::selection {
 
 .main-img img {
   width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
-
-
-/* List of social media things */
+/** List of social media things */
 
 .social-list {
-  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 1rem;
   font-size: 0;
 }
 
-.social-list>li {
-  display: inline-block;
+.social-list > li {
+  /* display: block; */
   list-style-type: none;
-  margin: 7.142858% 0 0 7.142858%;
   width: 14.285714%;
 }
 
-.social-list>li:first-child {
+.social-list > li:first-child {
   margin-left: 0;
 }
 
@@ -209,6 +189,10 @@ a::selection {
 
 .contact-wrapper {
   max-width: 21rem;
+}
+
+.contact-wrapper .social-list {
+  padding: 0;
 }
 
 .scholar-icon {
@@ -241,133 +225,85 @@ a::selection {
   background-image: url('../img/linkedin.svg');
 }
 
-.google-plus-icon {
-  background-image: url('../img/google-plus.svg#svgView(viewBox(32, 0, 32, 32))');
+.facebook-icon {
+  background-image: url('../img/facebook.svg#svgView(viewBox(32, 0, 32, 32))');
 }
 
-.google-plus-icon:active,
-.google-plus-icon:hover,
-.google-plus-icon-color {
-  background-image: url('../img/google-plus.svg');
+.facebook-icon:active,
+.facebook-icon:hover,
+.facebook-icon-color {
+  background-image: url('../img/facebook.svg');
 }
 
 .gmail-icon {
-  background-image: url('../img/email-at-square.svg#svgView(viewBox(32, 0, 32, 32))');
+  background-image: url('../img/email.svg#svgView(viewBox(32, 0, 32, 32))');
 }
 
 .gmail-icon:active,
 .gmail-icon:hover,
 .gmail-icon-color {
-  background-image: url('../img/email-at-square.svg');
+  background-image: url('../img/email.svg');
 }
 
-
-
-/* News list */
-
-.news {
-  border: 0;
-}
-
-.news td {
-  border: 0;
-  padding: 0.5rem 0 0 0;
-}
-
-.news tr:first-child>td {
-  padding-top: 0;
-}
-
-.news td:first-child {
-  white-space: nowrap;
-  vertical-align: top;
-  padding-right: 0.5rem;
-  text-transform: uppercase;
-  font-weight: 500;
-}
-
-
-
-/* Navigation list */
+/** Navigation list */
 
 .nav-list {
-  margin: 0 -1.5rem;
+  padding: 1rem 0 0 0;
 }
 
-.nav-list>li {
-  padding: 0;
+.nav-list .mdc-list-item {
+  font-size: 1rem;
 }
 
-.nav-list a {
-  padding: 1.5em;
-  font-size: inherit;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
+.nav-list .nav-list--inactive {
+  color: black;
 }
 
+/** List of material like cards */
 
-
-/* List of material like cards */
-
-.mdl-card {
-  margin-bottom: 24px;
-  width: 100%;
-  min-height: 0;
+.mdc-card:not(:last-child) {
+  margin-bottom: 1.5rem;
 }
 
-.mdl-card .mdl-card__actions {
-  display: flex;
+.mdc-card > :not(.mdc-card__actions) {
+  margin: 1rem 1rem 0 1rem;
 }
 
-.mdl-card .mdl-card__supporting-text {
-  text-align: justify;
+.description, .text {
+  line-height: 1.3em;
 }
 
-.mdl-card.collapsed .mdl-card__supporting-text {
-  display: none;
-}
-
-.mdl-card .expand-btn {
+.expand-button {
   transform: rotate(-180deg);
   transition: transform 0.2s ease;
 }
 
-.mdl-card.collapsed .expand-btn {
-  transform: none;
-}
-
-
-
-/* Tooltips */
-
-.mdl-card .abstract-expand-tooltip::before {
-  content: "Hide abstract";
-}
-
-.mdl-card.collapsed .abstract-expand-tooltip::before {
-  content: "Show abstract";
-}
-
-.citation-tooltip::before {
-  content: "Copy bibtex to clipboard";
-}
-
-
-
-/* Search box */
-
-#search:focus {
-  background-color: white;
-  padding: 9px 5px;
-  width: calc(100% + 10px);
-  margin: -5px;
-  border-radius: 2px;
-}
-
-#search~label::after {
-  background-color: #9191e9;
-}
-
-.filtered {
+.collapsed .description {
   display: none;
+}
+
+.collapsed .expand-button {
+  transform: rotate(0deg);
+}
+
+.description, .info-list {
+  color: rgba(0,0,0,.54);
+}
+
+.info-list {
+  display: flex;
+  flex-direction: row;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  font-weight: 500;
+  justify-content: space-between;
+}
+
+/** Citations */
+.bibtex-citation {
+  display: none;
+}
+
+.mdc-dialog--open .mdc-dialog__surface {
+  max-width: fit-content;
 }
