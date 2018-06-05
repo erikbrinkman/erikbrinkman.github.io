@@ -85,4 +85,11 @@
 
   // Trigger initial scroll event for coloring
   window.dispatchEvent(new Event('scroll'));
+
+  // Service worker
+  if ('serviceWorker' in navigator) {
+    (async () => {
+      await navigator.serviceWorker.register('/service_worker.js');
+    })();
+  }
 })();

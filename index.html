@@ -1,7 +1,9 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
+    <link rel="preload" as="style" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.css" />
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-37133085-2"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -10,6 +12,8 @@
 
       gtag('config', 'UA-37133085-2');
     </script>
+    <!-- prevent FOUC -->
+    <style>.mdc-snackbar { transform: translateY(100%); }</style>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,6 +21,7 @@
     <title>Erik Brinkman</title>
     <meta name="description" content="I am a recent PhD grduate of Computer Science at the University of Michigan, where I was advised by Michael Wellman. I start working at Facebook NYC in August 2018. My research interests include games with endogenous information acquisition, empirical game solving, agent-based modeling applied to the finance, and general machine learning.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="/manifest.json">
 
     <!-- Colored Titles -->
     <meta name="theme-color" content="#9191e9">
@@ -25,7 +30,7 @@
 
     <!-- Icons -->
     <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-precomposed.png" />
-    <link rel="icon" href="/favicon.png" />
+    <link rel="icon" href="/favicon-192.png" />
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.css" />
@@ -38,58 +43,70 @@
   <body>
     <div id="nav-background" class="mdc-elevation--z8">
       <nav>
-        <a href="#home" class="main-img">
-          <img src="/img/portrait.jpg"/>
+        <a href="#home" class="main-img" alt="portrait link">
+          <img src="/img/portrait.jpg" alt="portrait"/>
         </a>
         <ul class="social-list">
           <li>
             <a href="https://scholar.google.com/citations?user=4CerxXxb7KAC"
-               target="_blank" class="scholar-icon" title="Google Scholar"></a>
+               target="_blank" rel="noopener" class="scholar-icon" title="Google Scholar"></a>
           </li>
           <li>
-            <a href="https://github.com/erikbrinkman" target="_blank"
+            <a href="https://github.com/erikbrinkman" target="_blank" rel="noopener"
                class="github-icon" title="Github"></a>
           </li>
           <li>
-            <a href="https://www.linkedin.com/in/erikbrinkman" target="_blank"
+            <a href="https://www.linkedin.com/in/erikbrinkman" target="_blank" rel="noopener"
                class="linkedin-icon" title="LinkedIn"></a>
           </li>
           <li>
-            <a href="https://www.facebook.com/erik.brinkman" target="_blank"
+            <a href="https://www.facebook.com/erik.brinkman" target="_blank" rel="noopener"
                class="facebook-icon" title="Facebook"></a>
           </li>
           <li>
-            <a href="mailto:erik.brinkman@gmail.com" target="_blank"
+            <a href="mailto:erik.brinkman@gmail.com" target="_blank" rel="noopener"
                class="gmail-icon" title="Email"></a>
           </li>
         </ul>
 
         <ul class="nav-list mdc-list">
-          <a class="mdc-list-item mdc-button" data-mdc-auto-init="MDCRipple"
-             href="#home" role="button">About</a>
-          <a class="mdc-list-item mdc-button" data-mdc-auto-init="MDCRipple"
-             href="#publications" role="button">Publications</a>
-          <a class="mdc-list-item mdc-button" data-mdc-auto-init="MDCRipple"
-             href="#projects" role="button">Projects</a>
-          <a class="mdc-list-item mdc-button" data-mdc-auto-init="MDCRipple"
-             href="#misc" role="button">Misc</a>
+          <li class="mdc-list-item">
+            <a class="mdc-button"
+               data-mdc-auto-init="MDCRipple"
+               href="#home" role="button">About</a>
+          </li>
+          <li class="mdc-list-item">
+            <a class="mdc-button"
+               data-mdc-auto-init="MDCRipple"
+               href="#publications" role="button">Publications</a>
+          </li>
+          <li class="mdc-list-item">
+            <a class="mdc-button"
+               data-mdc-auto-init="MDCRipple"
+               href="#projects" role="button">Projects</a>
+          </li>
+          <li class="mdc-list-item">
+            <a class="mdc-button"
+               data-mdc-auto-init="MDCRipple"
+               href="#misc" role="button">Misc</a>
+          </li>
         </ul>
       </nav>
     </div>
 
     <main>
     <section id="home">
-      <h1 class="title"><img src="img/monogram.svg" class="monogram" />Erik Brinkman</h1>
+      <h1 class="title"><img src="img/monogram.svg" class="monogram" alt="monogram"/>Erik Brinkman</h1>
 
       <img class="small-screen-img small-screen-only mdc-elevation--z4"
-           src="img/portrait.jpg" />
+           src="img/portrait.jpg" alt="portrait"/>
 
       <div class="mdc-card">
         <div class="text">
           I am a recent PhD graduate of
-          <a href="https://www.eecs.umich.edu/" target="_blank">Computer
+          <a href="https://www.eecs.umich.edu/" target="_blank" rel="noopener">Computer
             Science at the University of Michigan</a>, where I was advised by
-          <a href="https://strategicreasoning.org/michael-p-wellman/" target="_blank">Michael Wellman</a>.
+          <a href="https://strategicreasoning.org/michael-p-wellman/" target="_blank" rel="noopener">Michael Wellman</a>.
           I start working at Facebook NYC in August 2018.
           My research interests include games with endogenous information acquisition,
           empirical game solving, agent-based modeling applied to the finance, and
@@ -97,12 +114,12 @@
         </div>
 
         <div class="mdc-card__actions mdc-card__action-buttons">
-          <a href="resume/resume.html" target="_blank"
+          <a href="resume/resume.html" target="_blank" rel="noopener"
              class="mdc-button mdc-card__action mdc-card__action--button"
              data-mdc-auto-init="MDCRipple">
           resume
         </a>
-          <a href="resume/cv.html" target="_blank"
+          <a href="resume/cv.html" target="_blank" rel="noopener"
              class="mdc-button mdc-card__action mdc-card__action--button"
              data-mdc-auto-init="MDCRipple">
           curriculum vitae
@@ -142,12 +159,12 @@
         </div>
         <div class="mdc-card__actions">
           <div class="mdc-card__action-buttons">
-            <a href="//dl.acm.org/authorize?N30521" target="_blank"
+            <a href="//dl.acm.org/authorize?N30521" target="_blank" rel="noopener"
                class="mdc-button mdc-card__action mdc-card__action--button"
                data-mdc-auto-init="MDCRipple">
               PDF
             </a>
-            <a href="https://youtu.be/26djyL_5HsI" target="_blank"
+            <a href="https://youtu.be/26djyL_5HsI" target="_blank" rel="noopener"
                class="mdc-button mdc-card__action mdc-card__action--button"
                data-mdc-auto-init="MDCRipple">
               Video
@@ -205,12 +222,12 @@
         <div class="mdc-card__actions">
           <div class="mdc-card__action-buttons">
             <a href="http://www.ifaamas.org/Proceedings/aamas2014/aamas/p229.pdf"
-               target="_blank"
+               target="_blank" rel="noopener"
                class="mdc-button mdc-card__action mdc-card__action--button"
                data-mdc-auto-init="MDCRipple">
               PDF
             </a>
-            <a href="//deepblue.lib.umich.edu/handle/2027.42/102737" target="_blank"
+            <a href="//deepblue.lib.umich.edu/handle/2027.42/102737" target="_blank" rel="noopener"
                class="mdc-button mdc-card__action mdc-card__action--button"
                data-mdc-auto-init="MDCRipple">
               Appendix
@@ -252,11 +269,11 @@
         <div class="description">
           A command line utility for generating plots according to the
           principles of
-          <a href="http://www.principiae.be/" target="_blank">Principiae</a>.
+          <a href="http://www.principiae.be/" target="_blank" rel="noopener">Principiae</a>.
         </div>
         <div class="mdc-card__actions">
           <div class="mdc-card__action-buttons">
-            <a href="//github.com/erikbrinkman/principia" target="_blank"
+            <a href="//github.com/erikbrinkman/principia" target="_blank" rel="noopener"
                class="mdc-button mdc-card__action mdc-card__action--button"
                data-mdc-auto-init="MDCRipple">
               Github
@@ -281,7 +298,7 @@
         </div>
         <div class="mdc-card__actions">
           <div class="mdc-card__action-buttons">
-            <a href="//github.com/erikbrinkman/stats" target="_blank"
+            <a href="//github.com/erikbrinkman/stats" target="_blank" rel="noopener"
                class="mdc-button mdc-card__action mdc-card__action--button"
                data-mdc-auto-init="MDCRipple">
               Github
@@ -305,7 +322,7 @@
         </div>
         <div class="mdc-card__actions">
           <div class="mdc-card__action-buttons">
-            <a href="//github.com/erikbrinkman/postly" target="_blank"
+            <a href="//github.com/erikbrinkman/postly" target="_blank" rel="noopener"
                class="mdc-button mdc-card__action mdc-card__action--button"
                data-mdc-auto-init="MDCRipple">
               Github
@@ -331,13 +348,13 @@
         <div class="mdc-card__actions">
           <div class="mdc-card__action-buttons">
             <a href="http://erikbrinkman.github.io/great-lakes-distance"
-               target="_blank"
+               target="_blank" rel="noopener"
                class="mdc-button mdc-card__action mdc-card__action--button"
                data-mdc-auto-init="MDCRipple">
               Website
             </a>
             <a href="//github.com/erikbrinkman/great-lakes-distance"
-               target="_blank"
+               target="_blank" rel="noopener"
                class="mdc-button mdc-card__action mdc-card__action--button"
                data-mdc-auto-init="MDCRipple">
               Github
@@ -361,23 +378,23 @@
         <ul class="social-list">
           <li>
             <a href="https://scholar.google.com/citations?user=4CerxXxb7KAC"
-               target="_blank" class="scholar-icon-color"></a>
+               target="_blank" rel="noopener" class="scholar-icon-color">Google Scholar</a>
           </li>
           <li>
-            <a href="https://github.com/erikbrinkman" target="_blank"
-               class="github-icon-color"></a>
+            <a href="https://github.com/erikbrinkman" target="_blank" rel="noopener"
+               class="github-icon-color">Github</a>
           </li>
           <li>
-            <a href="https://www.linkedin.com/in/erikbrinkman" target="_blank"
-               class="linkedin-icon-color"></a>
+            <a href="https://www.linkedin.com/in/erikbrinkman" target="_blank" rel="noopener"
+               class="linkedin-icon-color">Linked-in</a>
           </li>
           <li>
-            <a href="https://www.facebook.com/erik.brinkman" target="_blank"
-               class="facebook-icon-color"></a>
+            <a href="https://www.facebook.com/erik.brinkman" target="_blank" rel="noopener"
+               class="facebook-icon-color">Facebook</a>
           </li>
           <li>
-            <a target="_blank" class="gmail-icon-color mail"
-               href="mailto:erik.brinkman@gmail.com"></a>
+            <a target="_blank" rel="noopener" class="gmail-icon-color mail"
+               href="mailto:erik.brinkman@gmail.com">Email</a>
           </li>
         </ul>
       </div>
@@ -387,9 +404,9 @@
       <h2 class="title">Misc</h2>
       <div class="text">
         Thanks to
-        <a href="http://vision.ucsd.edu/~cwah/" target="_blank">Catherine Wah</a>
+        <a href="http://vision.ucsd.edu/~cwah/" target="_blank" rel="noopener">Catherine Wah</a>
         for inspiring the design of this website,
-        <a href="//cargocollective.com/alisonwilcox" target="_blank">Alison Wilcox</a>
+        <a href="//cargocollective.com/alisonwilcox" target="_blank" rel="noopener">Alison Wilcox</a>
         for helping with the general design and the logo.
       </div>
     </section>
