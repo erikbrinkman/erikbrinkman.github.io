@@ -25,30 +25,24 @@
       select.empty();
       select.addRange(range);
       if (document.execCommand('copy')) {
-        snackbar.show({
-          message: 'Copied citation to clipboard',
-          timeout: 2000,
-        });
+        snackbar.labelText = 'Copied citation to clipbaord';
+        snackbar.open();
       } else {
-        snackbar.show({
-          message: 'Failed copying citation to clipboard',
-          timeout: 2000,
-        });
+        snackbar.labelText = 'Failed copying citation to clipboard';
+        snackbar.open();
       }
       select.empty();
     } catch (err) {
       console.error(err);
-      snackbar.show({
-        message: "Browser doesn't support copying",
-        timeout: 2000,
-      });
+      snackbar.labelText = "Browser doesn't support copying";
+      snackbar.open();
     }
   });
   [].forEach.call(document.querySelectorAll('.citation-button'), button => {
     const citation = button.querySelector('.bibtex-citation').textContent;
     button.addEventListener('click', evt => {
       bibtex.textContent = citation;
-      dialog.show();
+      dialog.open();
     });
   });
 

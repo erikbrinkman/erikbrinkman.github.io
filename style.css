@@ -32,11 +32,6 @@ body {
   text-shadow: none;
 }
 
-/* Snackbar FOUC */
-.mdc-snackbar {
-  transform: translateY(100%);
-}
-
 /** Control the layout with side bar etc */
 
 #nav-background {
