@@ -1,16 +1,14 @@
-# Emacs #
+# Yarn #
+########
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# Cache #
 #########
-*~
-
-# Vim #
-#######
-.*.swp
-.*.un~
-
-# Node#
-#######
-/node_modules
-
-# Tup #
-# #####
-/.tup
+.next
+tsconfig.tsbuildinfo

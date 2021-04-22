@@ -1,4 +1,4 @@
 erikbrinkman.github.io
 ======================
 
-Personal website incorporating material design.
+My personal website built using next js and tailwind.
