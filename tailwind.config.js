@@ -9,6 +9,9 @@ module.exports = {
         details: ["Josefin Sans", "sans-serif"],
         sans: ["Lato", "san-serif"],
       },
+      fontSize: {
+        name: "min(6rem, 16vw)",
+      },
     },
   },
   plugins: [],

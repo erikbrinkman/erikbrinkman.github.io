@@ -16,7 +16,7 @@ export default function Hero(): ReactElement {
       </div>
       <div className="w-full h-screen absolute flex flex-col justify-between items-center p-6 text-white">
         <div className="uppercase font-bold text-sm" />
-        <h1 className="relative font-section font-bold text-8xl text-center max-w-[90%] break-words">
+        <h1 className="relative font-section font-bold text-name text-center max-w-[90%]">
           Erik Brinkman
         </h1>
         <div>
