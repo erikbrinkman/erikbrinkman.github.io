@@ -1,4 +1,5 @@
 import { ReactElement } from "react";
+import { isMobile } from "react-device-detect";
 import StaticImage from "../components/static-image";
 import logo from "../public/logo.svg";
 
@@ -27,13 +28,14 @@ function Paralax({
   // TODO why this is this translate x necessary, and still not aligned, in
   // google mobile dev, it's not necessary, so it's not clear what's causing
   // it...
+  const xtrans = isMobile ? 0 : -8.5 * parallax;
   return (
     <div
       className="absolute w-full h-full flex flex-col justify-center items-center"
       style={{
-        transform: `translate3d(${
-          -8.5 * parallax
-        }px, 0, ${-parallax}px) scale(${parallax + 1})`,
+        transform: `translate3d(${xtrans}px, 0, ${-parallax}px) scale(${
+          parallax + 1
+        })`,
       }}
     >
       <div>
