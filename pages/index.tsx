@@ -19,7 +19,6 @@ import Section from "../components/section";
 import StaticImage from "../components/static-image";
 import cdc from "../public/cdc-W7L6KCaNfRU-unsplash.jpg";
 import d3dag from "../public/d3-dag.png";
-import lines from "../public/daniele-levis-pelusi-e87DcJU5XeA-unsplash.jpg";
 import mountains from "../public/jon-r8AFUpRp0J0-unsplash.jpg";
 import newyork from "../public/matteo-catanese-tr7PoBH0Aow-unsplash.jpg";
 import faraday from "../public/zoltan-tasi-XM40OT9lIFM-unsplash.jpg";
@@ -183,43 +182,6 @@ const projects: DetailsItem[] = [
               name: "Github",
               href: "https://github.com/hafaio/ascii-math-unicode",
             },
-          ]}
-          className="decoration-violet-200 justify-center"
-        />
-      </>
-    ),
-  },
-  {
-    name: "statscli",
-    title: "Stats CLI",
-    subtitle: "Command Line Statistics",
-    img: lines.src,
-    contents: (
-      <>
-        <p>
-          Stats CLI is a rust based command line utility for quickly summarizing
-          streams of numbers represented in ascii. It pairs well with general
-          streaming unix utilities.
-        </p>
-        <p>
-          Install with cargo install stats-cli which allows you to do things
-          like:
-        </p>
-        <Code>{`$ seq 1 100000 | stats
-count   100000
-min     1
-max     100000
-mean    50000.5
-stddev  28867.65779668774`}</Code>
-        <p>or</p>
-        <Code>{`seq 1 100000 | stats -p 25 --json | jq .
-{
-  "25%": 25000.75
-}`}</Code>
-        <LinkList
-          links={[
-            { name: "Crates.io", href: "https://crates.io/crates/stats-cli" },
-            { name: "Github", href: "https://github.com/erikbrinkman/stats" },
           ]}
           className="decoration-violet-200 justify-center"
         />
