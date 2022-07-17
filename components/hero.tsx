@@ -1,5 +1,5 @@
 import { ReactElement } from "react";
-import logo from "../public/logo.svg";
+import logo from "../images/logo.svg";
 import Nav from "./nav";
 import StaticImage from "./static-image";
 

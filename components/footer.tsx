@@ -1,7 +1,7 @@
 import { ReactElement } from "react";
 import { isMobile } from "react-device-detect";
 import StaticImage from "../components/static-image";
-import logo from "../public/logo.svg";
+import logo from "../images/logo.svg";
 
 function Logo({ clipPath }: { clipPath: string }): ReactElement {
   return (

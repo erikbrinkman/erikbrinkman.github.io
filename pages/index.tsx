@@ -17,11 +17,11 @@ import LinkList from "../components/link-list";
 import MobileNav from "../components/mobile-nav";
 import Section from "../components/section";
 import StaticImage from "../components/static-image";
-import cdc from "../public/cdc-W7L6KCaNfRU-unsplash.jpg";
-import d3dag from "../public/d3-dag.png";
-import mountains from "../public/jon-r8AFUpRp0J0-unsplash.jpg";
-import newyork from "../public/matteo-catanese-tr7PoBH0Aow-unsplash.jpg";
-import faraday from "../public/zoltan-tasi-XM40OT9lIFM-unsplash.jpg";
+import cdc from "../images/cdc-W7L6KCaNfRU-unsplash.jpg";
+import d3dag from "../images/d3-dag.png";
+import mountains from "../images/jon-r8AFUpRp0J0-unsplash.jpg";
+import newyork from "../images/matteo-catanese-tr7PoBH0Aow-unsplash.jpg";
+import faraday from "../images/zoltan-tasi-XM40OT9lIFM-unsplash.jpg";
 
 function TextLink({
   href,
