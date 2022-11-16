@@ -24,7 +24,7 @@ export default function CustomLink({
   return (
     <span className={className}>
       <Link href={href}>
-        <a {...opts}>{children}</a>
+        <span {...opts}>{children}</span>
       </Link>
     </span>
   );
