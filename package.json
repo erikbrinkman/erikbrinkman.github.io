@@ -9,31 +9,31 @@
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
-    "build": "pnpify next build && next export -o docs && touch docs/.nojekyll",
-    "fmt": "prettier --cache --write 'pages/**/*.tsx' 'components/**/*.tsx' 'utils/**/*.ts' '*.{json,js,ts}'",
+    "build": "pnpify next build && touch docs/.nojekyll",
+    "fmt": "pnpify prettier --cache --write 'pages/**/*.tsx' 'components/**/*.tsx' 'utils/**/*.ts' next.config.mjs postcss.config.js tailwind.config.js tsconfig.json package.json",
     "lint": "next lint && pnpify tsc"
   },
   "dependencies": {
     "autoprefixer": "^10.4.14",
-    "next": "^13.4.7",
-    "postcss": "^8.4.24",
+    "next": "^13.4.9",
+    "postcss": "^8.4.25",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
-    "sharp": "^0.32.1",
+    "sharp": "^0.32.2",
     "tailwindcss": "^3.3.2",
     "typescript": "5.1.6"
   },
   "devDependencies": {
-    "@babel/core": "^7.22.5",
-    "@types/node": "^20.3.2",
+    "@babel/core": "^7.22.8",
+    "@types/node": "^20.4.1",
     "@types/react": "^18.2.14",
     "@types/sharp": "^0.32.0",
-    "@yarnpkg/pnpify": "^4.0.0-rc.47",
-    "eslint": "8.43.0",
-    "eslint-config-next": "13.4.7",
+    "@yarnpkg/pnpify": "^4.0.0-rc.48",
+    "eslint": "8.44.0",
+    "eslint-config-next": "13.4.9",
     "eslint-plugin-spellcheck": "^0.0.20",
-    "prettier": "^2.8.8",
+    "prettier": "^3.0.0",
     "prettier-plugin-organize-imports": "^3.2.2"
   },
   "resolutions": {

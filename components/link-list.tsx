@@ -36,7 +36,7 @@ export default function LinkList({
     items.push(
       <span className="select-none" key={`sep-${i}`}>
         /
-      </span>
+      </span>,
     );
     items.push(<Item {...item} key={i + 1} />);
   }

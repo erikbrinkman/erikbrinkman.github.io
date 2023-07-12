@@ -98,7 +98,7 @@ export default function Details({
         expand={expand}
         collapse={collapse}
         key={ind}
-      />
+      />,
     );
   }
 

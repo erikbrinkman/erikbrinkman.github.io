@@ -21,7 +21,7 @@ export default function MobileNav(): ReactElement {
   const [collapsed, setCollapsed] = useState(true);
   const click = useCallback(
     () => setCollapsed(!collapsed),
-    [collapsed, setCollapsed]
+    [collapsed, setCollapsed],
   );
   const close = useCallback(() => setCollapsed(true), [setCollapsed]);
   const className = collapsed ? "hidden" : "";
