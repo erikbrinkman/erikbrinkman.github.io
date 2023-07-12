@@ -1,3 +1,5 @@
+"use client";
+
 import { ReactElement, useCallback, useEffect, useState } from "react";
 import { MdClose } from "react-icons/md";
 import ActionButton from "./action-button";

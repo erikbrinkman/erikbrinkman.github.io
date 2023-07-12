@@ -1,3 +1,5 @@
+"use client";
+
 import { ReactElement, useCallback, useState } from "react";
 import { MdClose, MdMenu } from "react-icons/md";
 import { navItems } from "../utils/nav-items";

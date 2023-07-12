@@ -1,3 +1,5 @@
+"use client";
+
 import Image, { ImageLoaderProps, ImageProps } from "next/image";
 import { ReactElement } from "react";
 

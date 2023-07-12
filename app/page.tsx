@@ -1,4 +1,4 @@
-import Head from "next/head";
+import { Metadata } from "next";
 import { PropsWithChildren, ReactElement } from "react";
 import {
   SiFacebook,
@@ -22,6 +22,10 @@ import d3dag from "../images/d3-dag.png";
 import mountains from "../images/jon-r8AFUpRp0J0-unsplash.jpg";
 import newyork from "../images/matteo-catanese-tr7PoBH0Aow-unsplash.jpg";
 import faraday from "../images/zoltan-tasi-XM40OT9lIFM-unsplash.jpg";
+
+export const metadata: Metadata = {
+  title: "Erik Brinkman",
+};
 
 function TextLink({
   href,
@@ -193,10 +197,6 @@ const projects: DetailsItem[] = [
 export default function Home(): ReactElement {
   return (
     <div>
-      <Head>
-        <title>Erik Brinkman</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <MobileNav />
       <div
         className="h-screen overflow-y-scroll scroll-smooth overflow-x-clip"

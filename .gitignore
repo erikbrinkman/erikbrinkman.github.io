@@ -13,3 +13,4 @@
 .next
 tsconfig.tsbuildinfo
 node_modules
+cache

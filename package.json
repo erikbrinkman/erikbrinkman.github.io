@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "pnpify next build && touch docs/.nojekyll",
-    "fmt": "pnpify prettier --cache --write 'pages/**/*.tsx' 'components/**/*.tsx' 'utils/**/*.ts' next.config.mjs postcss.config.js tailwind.config.js tsconfig.json package.json",
+    "fmt": "pnpify prettier --cache --write 'app/**/*.tsx' 'components/**/*.tsx' 'utils/**/*.ts' next.config.mjs postcss.config.js tailwind.config.js tsconfig.json package.json",
     "lint": "next lint && pnpify tsc"
   },
   "dependencies": {
