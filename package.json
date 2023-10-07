@@ -8,32 +8,32 @@
   "author": "Erik Brinkman <erik.brinkman@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "next dev",
+    "dev": "pnpify next dev",
     "build": "pnpify next build && touch docs/.nojekyll",
     "fmt": "pnpify prettier --cache --write 'app/**/*.tsx' 'components/**/*.tsx' 'utils/**/*.ts' next.config.mjs postcss.config.js tailwind.config.js tsconfig.json package.json",
-    "lint": "next lint && pnpify tsc"
+    "lint": "pnpify tsc && pnpify next lint"
   },
   "dependencies": {
-    "autoprefixer": "^10.4.14",
-    "next": "^13.4.12",
-    "postcss": "^8.4.27",
+    "autoprefixer": "^10.4.16",
+    "next": "^13.5.4",
+    "postcss": "^8.4.31",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-icons": "^4.10.1",
-    "sharp": "^0.32.4",
+    "react-icons": "^4.11.0",
+    "sharp": "^0.32.6",
     "tailwindcss": "^3.3.3",
-    "typescript": "5.1.6"
+    "typescript": "^5.2.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.22.9",
-    "@types/node": "^20.4.4",
-    "@types/react": "^18.2.15",
+    "@babel/core": "^7.23.0",
+    "@types/node": "^20.8.3",
+    "@types/react": "^18.2.25",
     "@types/sharp": "^0.32.0",
-    "@yarnpkg/pnpify": "^4.0.0-rc.48",
-    "eslint": "8.45.0",
-    "eslint-config-next": "13.4.12",
+    "@yarnpkg/pnpify": "^4.0.0-rc.53",
+    "eslint": "^8.51.0",
+    "eslint-config-next": "^13.5.4",
     "eslint-plugin-spellcheck": "^0.0.20",
-    "prettier": "^3.0.0",
+    "prettier": "^3.0.3",
     "prettier-plugin-organize-imports": "^3.2.3"
   },
   "resolutions": {
