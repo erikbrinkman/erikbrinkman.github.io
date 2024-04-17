@@ -1,6 +1,4 @@
-const defaultTheme = require("tailwindcss/defaultTheme");
-
-module.exports = {
+export default {
   content: ["./app/**/*.tsx", "./components/**/*.tsx", "./utils/**/*.ts"],
   theme: {
     extend: {

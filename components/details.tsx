@@ -91,8 +91,9 @@ export default function Details({
 
   const details = [];
   for (const [ind, item] of items.entries()) {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const expand = useCallback(() => setSelected(ind), [setSelected, ind]);
+    const expand = useCallback(() => {
+      setSelected(ind);
+    }, [setSelected, ind]);
     details.push(
       <DetailsDisplay
         {...item}

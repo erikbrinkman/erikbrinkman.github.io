@@ -3,10 +3,11 @@ import StaticImage from "../components/static-image";
 import logo from "../images/logo.svg";
 
 function Logo({ clipPath }: { clipPath?: string }): ReactElement {
+  const { src } = logo as { src: string };
   return (
     <StaticImage
       alt="logo"
-      src={logo.src}
+      src={src}
       width="300"
       height="300"
       style={{ clipPath }}

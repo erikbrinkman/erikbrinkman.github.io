@@ -3,84 +3,39 @@
   "private": true,
   "version": "0.0.1",
   "description": "Erik Brinkman's Personal Website",
-  "main": "index.js",
   "repository": "git@github.com:erikbrinkman/erikbrinkman.github.io.git",
   "author": "Erik Brinkman <erik.brinkman@gmail.com>",
+  "type": "module",
   "license": "MIT",
   "scripts": {
     "dev": "next dev --turbo",
-    "build": "next build && touch docs/.nojekyll",
-    "fmt": "prettier --cache --write 'app/**/*.tsx' 'components/**/*.tsx' 'utils/**/*.ts' next.config.mjs postcss.config.js tailwind.config.js tsconfig.json package.json",
-    "lint": "tsc && next lint"
+    "export": "next build && touch docs/.nojekyll",
+    "fmt": "prettier --cache --write 'app/**/*.tsx' 'components/**/*.tsx' 'utils/**/*.ts' '*.js' '*.json'",
+    "lint": "tsc && eslint 'app/**/*.tsx' 'components/**/*.tsx' 'utils/**/*.ts'"
   },
-  "dependencies": {
+  "devDependencies": {
+    "@babel/core": "^7.23.9",
+    "@eslint/js": "^9.0.0",
+    "@next/eslint-plugin-next": "^14.2.2",
+    "@types/node": "^20.11.19",
+    "@types/react": "^18.2.57",
+    "@types/sharp": "^0.32.0",
     "autoprefixer": "^10.4.17",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "^14.1.0",
+    "eslint-plugin-react": "^7.34.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-spellcheck": "^0.0.20",
     "next": "^14.1.0",
     "postcss": "^8.4.35",
+    "prettier": "^3.2.5",
+    "prettier-plugin-organize-imports": "^3.2.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.0.1",
     "sharp": "^0.33.2",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5.3.3"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.23.9",
-    "@types/node": "^20.11.19",
-    "@types/react": "^18.2.57",
-    "@types/sharp": "^0.32.0",
-    "eslint": "^8.56.0",
-    "eslint-config-next": "^14.1.0",
-    "eslint-plugin-spellcheck": "^0.0.20",
-    "prettier": "^3.2.5",
-    "prettier-plugin-organize-imports": "^3.2.4"
-  },
-  "resolutions": {
-    "minimist": "1.2.6",
-    "minimatch": "^3.0.5"
-  },
-  "prettier": {
-    "plugins": [
-      "prettier-plugin-organize-imports"
-    ]
-  },
-  "eslintConfig": {
-    "plugins": [
-      "spellcheck"
-    ],
-    "extends": "next/core-web-vitals",
-    "rules": {
-      "no-console": "warn",
-      "no-warning-comments": [
-        "warn",
-        {
-          "terms": [
-            "fixme"
-          ]
-        }
-      ],
-      "spellcheck/spell-checker": [
-        "error",
-        {
-          "identifiers": false,
-          "skipWords": [
-            "Ascii",
-            "Markable",
-            "asciimath",
-            "brinkman",
-            "erik",
-            "favicon",
-            "gmail",
-            "mailto",
-            "noreferrer",
-            "repub",
-            "statscli",
-            "stddev",
-            "whitespace"
-          ],
-          "minLength": 4
-        }
-      ]
-    }
+    "typescript": "^5.4.5",
+    "typescript-eslint": "^7.7.0"
   }
 }

@@ -108,7 +108,9 @@ const projects: DetailsItem[] = [
   },
   {
     name: "repub",
+    // eslint-disable-next-line spellcheck/spell-checker
     title: "reMarkable ePub",
+    // eslint-disable-next-line spellcheck/spell-checker
     subtitle: "ePub render for reMarkable",
     img: mountains.src,
     contents: (
@@ -152,7 +154,9 @@ const projects: DetailsItem[] = [
     ),
   },
   {
+    // eslint-disable-next-line spellcheck/spell-checker
     name: "asciimath",
+    // eslint-disable-next-line spellcheck/spell-checker
     title: "Ascii Math Unicode",
     subtitle: "Render Unicode Math",
     img: faraday.src,
@@ -278,6 +282,7 @@ export default function Home(): ReactElement {
                 },
                 {
                   name: "email",
+                  // eslint-disable-next-line spellcheck/spell-checker
                   href: "mailto:erik.brinkman@gmail.com",
                   icon: <SiGmail />,
                 },

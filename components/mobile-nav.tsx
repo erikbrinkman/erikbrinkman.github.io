@@ -21,11 +21,12 @@ function LinkItem({ name, href, close }: LinkItemProps): ReactElement {
 
 export default function MobileNav(): ReactElement {
   const [collapsed, setCollapsed] = useState(true);
-  const click = useCallback(
-    () => setCollapsed(!collapsed),
-    [collapsed, setCollapsed],
-  );
-  const close = useCallback(() => setCollapsed(true), [setCollapsed]);
+  const click = useCallback(() => {
+    setCollapsed(!collapsed);
+  }, [collapsed, setCollapsed]);
+  const close = useCallback(() => {
+    setCollapsed(true);
+  }, [setCollapsed]);
   const className = collapsed ? "hidden" : "";
 
   const linkItems = navItems.map((item, ind) => (

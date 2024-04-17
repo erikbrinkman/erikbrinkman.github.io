@@ -20,6 +20,7 @@ export default function CustomLink({
   className?: string;
   external?: boolean;
 }>): ReactElement {
+  // eslint-disable-next-line spellcheck/spell-checker
   const opts = external ? { target: "_blank", rel: "noreferrer" } : {};
   return (
     <span className={className}>
