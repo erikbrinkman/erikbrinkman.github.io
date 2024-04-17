@@ -8,10 +8,10 @@
   "author": "Erik Brinkman <erik.brinkman@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "pnpify next dev",
-    "build": "pnpify next build && touch docs/.nojekyll",
-    "fmt": "pnpify prettier --cache --write 'app/**/*.tsx' 'components/**/*.tsx' 'utils/**/*.ts' next.config.mjs postcss.config.js tailwind.config.js tsconfig.json package.json",
-    "lint": "pnpify tsc && pnpify next lint"
+    "dev": "next dev --turbo",
+    "build": "next build && touch docs/.nojekyll",
+    "fmt": "prettier --cache --write 'app/**/*.tsx' 'components/**/*.tsx' 'utils/**/*.ts' next.config.mjs postcss.config.js tailwind.config.js tsconfig.json package.json",
+    "lint": "tsc && next lint"
   },
   "dependencies": {
     "autoprefixer": "^10.4.17",
@@ -29,7 +29,6 @@
     "@types/node": "^20.11.19",
     "@types/react": "^18.2.57",
     "@types/sharp": "^0.32.0",
-    "@yarnpkg/pnpify": "^4.0.1",
     "eslint": "^8.56.0",
     "eslint-config-next": "^14.1.0",
     "eslint-plugin-spellcheck": "^0.0.20",
@@ -83,6 +82,5 @@
         }
       ]
     }
-  },
-  "packageManager": "yarn@4.1.0"
+  }
 }
