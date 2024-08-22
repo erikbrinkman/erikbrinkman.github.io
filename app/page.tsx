@@ -215,13 +215,10 @@ export default function Home(): ReactElement {
           <Contents>
             <p>
               I am a research scientist at{" "}
-              <TextLink href="https://meta.com">Meta</TextLink> studying the
-              fairness of recommender systems. I&apos;m particularly interested
-              in the underlying incentives of recommender systems, and the
-              processes that create them. In 2022 I switched to fairness after
-              spending the past four years studying people representation and
-              candidate generation at Meta. Before joining Meta I completed my
-              PhD in Computer Science at the{" "}
+              <TextLink href="https://meta.com">Meta</TextLink> currently
+              working on LLM safety, but with projects ranging from ML fairness
+              to user representation in recommendation systems. Before joining
+              Meta I completed my PhD in Computer Science at the{" "}
               <TextLink href="https://umich.edu">
                 University of Michigan
               </TextLink>{" "}
