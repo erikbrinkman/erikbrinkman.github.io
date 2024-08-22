@@ -1,6 +1,7 @@
 export default {
-  reactStrictMode: true,
-  images: { loader: "custom" },
+  images: {
+    unoptimized: true,
+  },
+
   output: "export",
-  distDir: process.env.NODE_ENV === "production" ? "docs" : undefined,
 };
