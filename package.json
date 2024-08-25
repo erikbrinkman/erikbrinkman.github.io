@@ -9,7 +9,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "next dev --turbo",
-    "export": "next build && touch docs/.nojekyll",
+    "export": "next build",
     "fmt": "prettier --cache --write 'app/**/*.tsx' 'components/**/*.tsx' 'utils/**/*.ts' '*.js' '*.json'",
     "lint": "tsc && eslint 'app/**/*.tsx' 'components/**/*.tsx' 'utils/**/*.ts'"
   },
