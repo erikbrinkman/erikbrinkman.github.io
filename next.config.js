@@ -1,7 +1,4 @@
 export default {
-  images: {
-    unoptimized: true,
-  },
-
+  images: { unoptimized: true },
   output: "export",
 };
