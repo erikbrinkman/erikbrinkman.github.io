@@ -1,13 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&family=Lato&display=swap')
+layer(base);
 
-@font-face {
-  font-family: "Jaapokki Enhance";
-  src: url("/fonts/jaapokkienhance-regular.woff");
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
+@import 'tailwindcss';
+
+@theme {
+  --font-section: Jaapokki Enhance, sans-serif;
+  --font-details: Josefin Sans, sans-serif;
+  --font-sans: Lato, san-serif;
+
+  --text-name: min(6rem, 16vw);
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@layer base {
+  @font-face {
+    font-family: 'Jaapokki Enhance';
+    src: url('/fonts/jaapokkienhance-regular.woff');
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+  }
+}
