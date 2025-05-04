@@ -1,17 +1,11 @@
+import Image from "next/image";
 import { ReactElement } from "react";
-import StaticImage from "../components/static-image";
 import logo from "../images/logo.svg";
 
 function Logo({ clipPath }: { clipPath?: string }): ReactElement {
   const { src } = logo as { src: string };
   return (
-    <StaticImage
-      alt="logo"
-      src={src}
-      width="300"
-      height="300"
-      style={{ clipPath }}
-    />
+    <Image alt="logo" src={src} width="300" height="300" style={{ clipPath }} />
   );
 }
 
