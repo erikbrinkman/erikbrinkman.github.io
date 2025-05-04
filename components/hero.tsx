@@ -3,8 +3,6 @@ import logo from "../images/logo.svg";
 import Nav from "./nav";
 import StaticImage from "./static-image";
 
-// dlete me
-
 export default function Hero(): ReactElement {
   const { src } = logo as { src: string };
   return (
