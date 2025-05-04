@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import { PropsWithChildren, ReactElement } from "react";
 import {
   SiFacebook,
@@ -16,7 +17,6 @@ import Link from "../components/link";
 import LinkList from "../components/link-list";
 import MobileNav from "../components/mobile-nav";
 import Section from "../components/section";
-import StaticImage from "../components/static-image";
 import cdc from "../images/cdc-W7L6KCaNfRU-unsplash.jpg";
 import d3dag from "../images/d3-dag.png";
 import mountains from "../images/jon-r8AFUpRp0J0-unsplash.jpg";
@@ -56,7 +56,7 @@ const projects: DetailsItem[] = [
         </p>
         <p>Using D3 Dag you can render DAGs like:</p>
         <div className="max-w-xs mx-auto">
-          <StaticImage {...d3dag} alt="example dag" />
+          <Image {...d3dag} alt="example dag" />
         </div>
         <LinkList
           links={[
