@@ -8,7 +8,6 @@ import {
   SiGooglescholar,
   SiLinkedin,
 } from "react-icons/si";
-import Code from "../components/code";
 import Contents from "../components/contents";
 import Details, { DetailsItem } from "../components/details";
 import Footer from "../components/footer";
@@ -20,8 +19,8 @@ import Section from "../components/section";
 import cdc from "../images/cdc-W7L6KCaNfRU-unsplash.jpg";
 import d3dag from "../images/d3-dag.png";
 import mountains from "../images/jon-r8AFUpRp0J0-unsplash.jpg";
+import goat from "../images/marek-piwnicki-WYtS0f4IaT8-unsplash.jpg";
 import newyork from "../images/matteo-catanese-tr7PoBH0Aow-unsplash.jpg";
-import faraday from "../images/zoltan-tasi-XM40OT9lIFM-unsplash.jpg";
 
 export const metadata: Metadata = {
   title: "Erik Brinkman",
@@ -42,6 +41,47 @@ function TextLink({
 }
 
 const projects: DetailsItem[] = [
+  {
+    name: "goat",
+    title: "GOAT",
+    subtitle: "Automated Multi-turn Red Teaming",
+    img: goat.src,
+    contents: (
+      <>
+        <p>
+          Red teaming assesses how large language models (LLMs) can produce
+          content that violates norms, policies, and rules set during their
+          safety training. However, most existing automated methods in the
+          literature are not representative of the way humans tend to interact
+          with AI models. Common users of AI models may not have advanced
+          knowledge of adversarial machine learning methods or access to model
+          internals, and they do not spend a lot of time crafting a single
+          highly effective adversarial prompt. Instead, they are likely to make
+          use of techniques commonly shared online and exploit the multi-turn
+          conversational nature of LLMs. While manual testing addresses this
+          gap, it is an inefficient and often expensive process. To address
+          these limitations, we introduce the Generative Offensive Agent Tester
+          (GOAT), an automated agentic red teaming system that simulates plain
+          language adversarial conversations while leveraging multiple
+          adversarial prompting techniques to identify vulnerabilities in LLMs.
+          We instantiate GOAT with 7 red teaming attacks by prompting a
+          general-purpose model in a way that encourages reasoning through the
+          choices of methods available, the current target model’s response, and
+          the next steps. Our approach is designed to be extensible and
+          efficient, allowing human testers to focus on exploring new areas of
+          risk while automation covers the scaled adversarial stress-testing of
+          known risk territory. We present the design and evaluation of GOAT,
+          demonstrating its effectiveness in identifying vulnerabilities in
+          state-of-the-art LLMs, with an ASR@10 of 97% against Llama 3.1 and 88%
+          against GPT-4-Turbo on the JailbreakBench dataset.
+        </p>
+        <LinkList
+          links={[{ name: "arXiv", href: "https://arxiv.org/pdf/2410.01606" }]}
+          className="decoration-violet-200 justify-center"
+        />
+      </>
+    ),
+  },
   {
     name: "d3dag",
     title: "D3 DAG",
@@ -153,49 +193,6 @@ const projects: DetailsItem[] = [
       </>
     ),
   },
-  {
-    // eslint-disable-next-line spellcheck/spell-checker
-    name: "asciimath",
-    // eslint-disable-next-line spellcheck/spell-checker
-    title: "Ascii Math Unicode",
-    subtitle: "Render Unicode Math",
-    img: faraday.src,
-    contents: (
-      <>
-        <p>
-          AsciiMath Unicode is a chrome extension for converting AsciiMath into
-          its formatted unicode representation. This representation is easier to
-          read and can still be sent as plain text in almost any format without
-          otherwise requiring advanced rendering.
-        </p>
-        <p>This extension will turn the somewhat legible expression</p>
-        <Code>sum_k phi(k)^2</Code>
-        <p>into</p>
-        <Code>∑ₖ ϕ(k)²</Code>
-        <p>
-          Which is closer to the mathematical rendering, but also pure unicode
-          and easily transferred between rendering environments.
-        </p>
-        <p>
-          This extension uses a custom AsciiMath parser that allows it to
-          preserve white space, which all other parsers inherently strip.
-        </p>
-        <LinkList
-          links={[
-            {
-              name: "Chrome",
-              href: "https://chrome.google.com/webstore/detail/ascii-math-unicode/llehdcbaonklonjlfgeggamnebgggoab",
-            },
-            {
-              name: "Github",
-              href: "https://github.com/hafaio/ascii-math-unicode",
-            },
-          ]}
-          className="decoration-violet-200 justify-center"
-        />
-      </>
-    ),
-  },
 ];
 
 export default function Home(): ReactElement {
@@ -214,25 +211,27 @@ export default function Home(): ReactElement {
         >
           <Contents>
             <p>
-              I am a research scientist at{" "}
-              <TextLink href="https://meta.com">Meta</TextLink> currently
-              working on LLM safety, but with projects ranging from ML fairness
-              to user representation in recommendation systems. Before joining
-              Meta I completed my PhD in Computer Science at the{" "}
+              I am a researcher at{" "}
+              <TextLink href="https://linkedin.com">LinkedIn</TextLink>{" "}
+              currently working on LLM fairness and safety. Before joining
+              LinkedIn, I did similar work at{" "}
+              <TextLink href="https://meta.com">Meta</TextLink> from 2018 to
+              2025, after completing my PhD in Computer Science at the{" "}
               <TextLink href="https://umich.edu">
                 University of Michigan
               </TextLink>{" "}
-              from 2012 to 2018. There I was advised by{" "}
+              in 2018. I was advised by{" "}
               <TextLink href="https://strategicreasoning.org/michael-p-wellman/">
                 Michael Wellman
               </TextLink>
               .
             </p>
             <p>
-              My research interests include the incentives and dynamics in
-              complex systems. This relates to embedding learning, user
-              representation, fairness, recommender systems as markets, and
-              general learning.
+              I'm primarily interested in understanding and mitigating bias in
+              AI systems, but my research interests include the incentives and
+              dynamics in complex systems. My research often involves embedding
+              learning, user representation, fairness, recommender systems as
+              markets, and general learning.
             </p>
             <LinkList
               links={[
@@ -321,9 +320,13 @@ export default function Home(): ReactElement {
               <TextLink href="https://unsplash.com/@zoltantasi">
                 Zoltan Tasi
               </TextLink>
-              , and{" "}
+              ,
               <TextLink href="https://unsplash.com/@yogidan2012">
                 Daniele Levis Pelusi
+              </TextLink>
+              , and{" "}
+              <TextLink href="https://unsplash.com/@marekpiwnicki">
+                Marek Piwnicki
               </TextLink>
               .
             </p>
