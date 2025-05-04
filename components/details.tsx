@@ -51,7 +51,7 @@ function DetailsDisplay({
           className="w-full h-full absolute bg-cover bg-center -z-10 group-hover:scale-110 transition-all duration-1000"
           style={{ backgroundImage: `url(${img})` }}
         />
-        <div className="text-center capitalize">
+        <div className="text-center capitalize drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,0.8)]">
           <div className="text-4xl font-bold">{title}</div>
           <div className="text-2xl">{subtitle}</div>
         </div>
