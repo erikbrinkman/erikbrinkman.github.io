@@ -1,6 +1,6 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import Image from "next/image";
-import { PropsWithChildren, ReactElement } from "react";
+import type { PropsWithChildren, ReactElement } from "react";
 import {
   SiFacebook,
   SiGithub,
@@ -9,7 +9,7 @@ import {
   SiLinkedin,
 } from "react-icons/si";
 import Contents from "../components/contents";
-import Details, { DetailsItem } from "../components/details";
+import Details, { type DetailsItem } from "../components/details";
 import Footer from "../components/footer";
 import Hero from "../components/hero";
 import Link from "../components/link";

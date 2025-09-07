@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactElement, useCallback, useEffect, useState } from "react";
+import { type ReactElement, useCallback, useEffect, useState } from "react";
 import { MdClose } from "react-icons/md";
 import ActionButton from "./action-button";
 import Contents from "./contents";
@@ -41,9 +41,13 @@ function DetailsDisplay({
   const titleCursor = expanded === null ? "cursor-pointer" : "";
   return (
     <div className={show} id={name}>
-      <div
+      <button
+        type="button"
         className={`group relative transition-all duration-1000 ${titleHeight} w-full flex flex-col justify-center items-center text-white font-details overflow-clip ${titleCursor}`}
         onClick={expanded === null ? navExpand : undefined}
+        onKeyUp={() => {
+          // TODO allow keyboard nav
+        }}
       >
         {/* this div is necessary so that the scrolling pins appropriately */}
         <div className="w-full h-full absolute" />
@@ -55,7 +59,7 @@ function DetailsDisplay({
           <div className="text-4xl font-bold">{title}</div>
           <div className="text-2xl">{subtitle}</div>
         </div>
-      </div>
+      </button>
       <Contents className={showContent}>{contents}</Contents>
     </div>
   );
@@ -76,7 +80,7 @@ export default function Details({
   const collapse = useCallback(() => {
     setSelected(null);
     location.hash = "";
-  }, [setSelected]);
+  }, []);
   const expanded = selected !== null;
 
   // update with initial hash
@@ -91,9 +95,9 @@ export default function Details({
 
   const details = [];
   for (const [ind, item] of items.entries()) {
-    const expand = useCallback(() => {
+    const expand = () => {
       setSelected(ind);
-    }, [setSelected, ind]);
+    };
     details.push(
       <DetailsDisplay
         {...item}

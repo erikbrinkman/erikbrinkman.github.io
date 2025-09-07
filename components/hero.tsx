@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ReactElement } from "react";
+import type { ReactElement } from "react";
 import logo from "../images/logo.svg";
 import Nav from "./nav";
 

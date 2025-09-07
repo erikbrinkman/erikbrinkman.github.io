@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactElement, useCallback, useState } from "react";
+import { type ReactElement, useCallback, useState } from "react";
 import { MdClose, MdMenu } from "react-icons/md";
 import { navItems } from "../utils/nav-items";
 import ActionButton from "./action-button";
@@ -23,14 +23,14 @@ export default function MobileNav(): ReactElement {
   const [collapsed, setCollapsed] = useState(true);
   const click = useCallback(() => {
     setCollapsed(!collapsed);
-  }, [collapsed, setCollapsed]);
+  }, [collapsed]);
   const close = useCallback(() => {
     setCollapsed(true);
-  }, [setCollapsed]);
+  }, []);
   const className = collapsed ? "hidden" : "";
 
-  const linkItems = navItems.map((item, ind) => (
-    <LinkItem {...item} close={close} key={ind} />
+  const linkItems = navItems.map((item) => (
+    <LinkItem {...item} close={close} key={`${item.name}:${item.href}`} />
   ));
   const icon = collapsed ? <MdMenu /> : <MdClose />;
   return (
