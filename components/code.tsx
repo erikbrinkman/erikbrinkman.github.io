@@ -1,4 +1,4 @@
-import { PropsWithChildren, ReactElement } from "react";
+import type { PropsWithChildren, ReactElement } from "react";
 
 export default function Code({ children }: PropsWithChildren): ReactElement {
   return (

@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import type { ReactElement } from "react";
 import { navItems } from "../utils/nav-items";
 import LinkList from "./link-list";
 
