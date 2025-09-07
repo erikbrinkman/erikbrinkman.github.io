@@ -10,32 +10,23 @@
   "scripts": {
     "dev": "next dev --turbo",
     "export": "next build",
-    "fmt": "prettier --cache --write 'app/**/*.tsx' 'components/**/*.tsx' 'utils/**/*.ts' '*.js' '*.json'",
-    "lint": "tsc && eslint 'app/**/*.tsx' 'components/**/*.tsx' 'utils/**/*.ts'"
+    "fmt": "biome format --write",
+    "lint": "tsc && biome check"
   },
   "devDependencies": {
-    "@babel/core": "^7.27.1",
-    "@eslint/js": "^9.26.0",
-    "@next/eslint-plugin-next": "^15.3.1",
-    "@tailwindcss/postcss": "^4.1.5",
-    "@types/node": "^22.15.3",
-    "@types/react": "^19.1.2",
+    "@babel/core": "^7.28.4",
+    "@biomejs/biome": "^2.2.3",
+    "@tailwindcss/postcss": "^4.1.13",
+    "@types/node": "^24.3.1",
+    "@types/react": "^19.1.12",
     "@types/sharp": "^0.32.0",
-    "eslint": "^9.26.0",
-    "eslint-config-next": "^15.3.1",
-    "eslint-plugin-react": "^7.37.5",
-    "eslint-plugin-react-hooks": "^5.2.0",
-    "eslint-plugin-spellcheck": "^0.0.20",
-    "next": "^15.3.1",
-    "postcss": "^8.5.3",
-    "prettier": "^3.5.3",
-    "prettier-plugin-organize-imports": "^4.1.0",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
+    "next": "^15.5.2",
+    "postcss": "^8.5.6",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
     "react-icons": "^5.5.0",
-    "sharp": "^0.34.1",
-    "tailwindcss": "^4.1.5",
-    "typescript": "^5.8.3",
-    "typescript-eslint": "^8.31.1"
+    "sharp": "^0.34.3",
+    "tailwindcss": "^4.1.13",
+    "typescript": "~5.9.2"
   }
 }
