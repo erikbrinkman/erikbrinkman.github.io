@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { PropsWithChildren, ReactElement } from "react";
+import type { PropsWithChildren, ReactElement } from "react";
 
 function isExternal(url: string): boolean {
   try {
