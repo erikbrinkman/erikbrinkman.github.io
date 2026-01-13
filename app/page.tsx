@@ -320,7 +320,7 @@ export default function Home(): ReactElement {
               <TextLink href="https://unsplash.com/@zoltantasi">
                 Zoltan Tasi
               </TextLink>
-              ,
+              ,{" "}
               <TextLink href="https://unsplash.com/@yogidan2012">
                 Daniele Levis Pelusi
               </TextLink>
