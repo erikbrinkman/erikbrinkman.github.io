@@ -24,6 +24,7 @@ import newyork from "../images/matteo-catanese-tr7PoBH0Aow-unsplash.jpg";
 
 export const metadata: Metadata = {
   title: "Erik Brinkman",
+  description: "Researcher in AI Fairness and Safety",
 };
 
 function TextLink({
