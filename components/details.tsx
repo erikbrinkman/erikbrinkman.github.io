@@ -17,7 +17,6 @@ export interface DetailsItem {
 interface DisplayProps extends DetailsItem {
   expanded: boolean | null;
   expand: () => void;
-  collapse: () => void;
 }
 
 function DetailsDisplay({
@@ -79,18 +78,20 @@ export default function Details({
   const [selected, setSelected] = useState<number | null>(null);
   const collapse = useCallback(() => {
     setSelected(null);
-    location.hash = "";
+    // drop the fragment without leaving a dangling "#" in the url
+    history.replaceState(null, "", location.pathname + location.search);
   }, []);
   const expanded = selected !== null;
 
-  // update with initial hash
+  // keep the expanded item in sync with the url hash, including back/forward nav
   useEffect(() => {
-    for (let ind = 0; ind < items.length; ++ind) {
-      if (`#${items[ind].name}` === location.hash) {
-        setSelected(ind);
-        break;
-      }
-    }
+    const syncHash = () => {
+      const ind = items.findIndex((item) => `#${item.name}` === location.hash);
+      setSelected(ind === -1 ? null : ind);
+    };
+    syncHash();
+    window.addEventListener("hashchange", syncHash);
+    return () => window.removeEventListener("hashchange", syncHash);
   }, [items]);
 
   const details = [];
@@ -103,7 +104,6 @@ export default function Details({
         {...item}
         expanded={selected === null ? null : selected === ind}
         expand={expand}
-        collapse={collapse}
         key={ind}
       />,
     );

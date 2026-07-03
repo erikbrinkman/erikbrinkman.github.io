@@ -91,7 +91,7 @@ const projects: DetailsItem[] = [
     contents: (
       <>
         <p>
-          D3 DAG is is an open source typescript library for rendering directed
+          D3 DAG is an open source typescript library for rendering directed
           acyclic graphs using a few different layout methods. It&apos;s based
           around the layered dag methodology from Sugiyama.
         </p>
@@ -149,16 +149,14 @@ const projects: DetailsItem[] = [
   },
   {
     name: "repub",
-    // eslint-disable-next-line spellcheck/spell-checker
     title: "reMarkable ePub",
-    // eslint-disable-next-line spellcheck/spell-checker
     subtitle: "ePub render for reMarkable",
     img: mountains.src,
     contents: (
       <>
         <p>
           rePub is a chrome extension that provides website to epub conversion
-          specifically tailored to viewing on remarkable. In includes several
+          specifically tailored to viewing on remarkable. It includes several
           improvements over the standard reMarkable extension for saving
           websites:
         </p>
@@ -279,7 +277,6 @@ export default function Home(): ReactElement {
                 },
                 {
                   name: "email",
-                  // eslint-disable-next-line spellcheck/spell-checker
                   href: "mailto:erik.brinkman@gmail.com",
                   icon: <SiGmail />,
                 },
@@ -317,15 +314,8 @@ export default function Home(): ReactElement {
               <TextLink href="https://unsplash.com/@matteocatanese">
                 Matteo Catanese
               </TextLink>
-              , <TextLink href="https://unsplash.com/@j_mk18">Jon</TextLink>,{" "}
-              <TextLink href="https://unsplash.com/@zoltantasi">
-                Zoltan Tasi
-              </TextLink>
-              ,{" "}
-              <TextLink href="https://unsplash.com/@yogidan2012">
-                Daniele Levis Pelusi
-              </TextLink>
-              , and{" "}
+              , <TextLink href="https://unsplash.com/@j_mk18">Jon</TextLink>,
+              and{" "}
               <TextLink href="https://unsplash.com/@marekpiwnicki">
                 Marek Piwnicki
               </TextLink>
