@@ -3,30 +3,22 @@ name: deploy
 on:
   workflow_dispatch:
 
-concurrency:
-  group: pages
-  cancel-in-progress: false
-
 jobs:
   gate:
     uses: ./.github/workflows/build.yml
 
-  deploy:
+  pages-build:
     needs: gate
     runs-on: ubuntu-latest
     permissions:
       contents: read
       pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
         with:
           lfs: true
       - uses: oven-sh/setup-bun@v2
-      - run: bun install
+      - run: bun install --frozen-lockfile
       - uses: actions/configure-pages@v5
         with:
           static_site_generator: next
@@ -34,5 +26,20 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
+
+  # separate from the build so a failed deploy re-runs without rebuilding the site
+  pages-deploy:
+    needs: pages-build
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      pages: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    steps:
       - id: deploy
         uses: actions/deploy-pages@v4
