@@ -1,13 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import type { PropsWithChildren, ReactElement } from "react";
-import {
-  SiFacebook,
-  SiGithub,
-  SiGmail,
-  SiGooglescholar,
-  SiLinkedin,
-} from "react-icons/si";
+import { FaLinkedin } from "react-icons/fa6";
+import { SiFacebook, SiGithub, SiGmail, SiGooglescholar } from "react-icons/si";
 import Contents from "../components/contents";
 import Details, { type DetailsItem } from "../components/details";
 import Footer from "../components/footer";
@@ -283,7 +278,7 @@ export default function Home(): ReactElement {
                 {
                   name: "LinkedIn",
                   href: "https://www.linkedin.com/in/erikbrinkman",
-                  icon: <SiLinkedin />,
+                  icon: <FaLinkedin />,
                 },
                 {
                   name: "Facebook",
