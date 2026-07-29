@@ -13,8 +13,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+      # cache lfs objects so repeat runs don't eat into the lfs bandwidth quota
+      - id: lfs-key
+        run: echo "key=$(git lfs ls-files -l | sha256sum | cut -d' ' -f1)" >> "$GITHUB_OUTPUT"
+      - uses: actions/cache@v4
         with:
-          lfs: true
+          path: .git/lfs
+          key: lfs-${{ steps.lfs-key.outputs.key }}
+      - run: git lfs pull
       - uses: oven-sh/setup-bun@v2
       - run: bun install --frozen-lockfile
       - run: bun lint
