@@ -3,9 +3,14 @@ import type { ReactElement } from "react";
 import logo from "../images/logo.svg";
 
 function Logo({ clipPath }: { clipPath?: string }): ReactElement {
-  const { src } = logo as { src: string };
   return (
-    <Image alt="logo" src={src} width="300" height="300" style={{ clipPath }} />
+    <Image
+      alt="logo"
+      src={logo}
+      width="300"
+      height="300"
+      style={{ clipPath }}
+    />
   );
 }
 
@@ -39,11 +44,11 @@ function Parallax({
 export default function Footer(): ReactElement {
   // TODO get a sliced parallax working
   return (
-    <div
-      className="w-full h-screen relative bg-violet-200"
+    <footer
+      className="w-full h-dvh relative bg-violet-200"
       style={{ transformStyle: "preserve-3d" }}
     >
       <Parallax parallax={-0.8} />
-    </div>
+    </footer>
   );
 }

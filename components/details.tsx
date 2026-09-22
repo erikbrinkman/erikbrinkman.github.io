@@ -36,30 +36,40 @@ function DetailsDisplay({
 
   const show = expanded === false ? "hidden" : "";
   const showContent = expanded ? "block" : "hidden";
-  const titleHeight = expanded ? "h-96" : "h-screen";
-  const titleCursor = expanded === null ? "cursor-pointer" : "";
+  const titleHeight = expanded ? "h-96" : "h-dvh";
+  const titleClass = `group relative transition-all duration-1000 ${titleHeight} w-full flex flex-col justify-center items-center text-white font-details overflow-clip`;
+  const titleContents = (
+    <>
+      {/* this div is necessary so that the scrolling pins appropriately */}
+      <div className="w-full h-full absolute" />
+      <div
+        className="w-full h-full absolute bg-cover bg-center -z-10 group-hover:scale-110 transition-all duration-1000"
+        style={{ backgroundImage: `url(${img})` }}
+      />
+      <div className="text-center capitalize drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,0.8)]">
+        <h3 className="text-4xl font-bold">{title}</h3>
+        <div className="text-2xl">{subtitle}</div>
+      </div>
+    </>
+  );
   return (
     <div className={show} id={name}>
-      <button
-        type="button"
-        className={`group relative transition-all duration-1000 ${titleHeight} w-full flex flex-col justify-center items-center text-white font-details overflow-clip ${titleCursor}`}
-        onClick={expanded === null ? navExpand : undefined}
-        onKeyUp={() => {
-          // TODO allow keyboard nav
-        }}
-      >
-        {/* this div is necessary so that the scrolling pins appropriately */}
-        <div className="w-full h-full absolute" />
-        <div
-          className="w-full h-full absolute bg-cover bg-center -z-10 group-hover:scale-110 transition-all duration-1000"
-          style={{ backgroundImage: `url(${img})` }}
-        />
-        <div className="text-center capitalize drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,0.8)]">
-          <div className="text-4xl font-bold">{title}</div>
-          <div className="text-2xl">{subtitle}</div>
-        </div>
-      </button>
-      <Contents className={showContent}>{contents}</Contents>
+      {expanded === null ? (
+        <button
+          type="button"
+          className={`${titleClass} cursor-pointer`}
+          aria-expanded={false}
+          aria-controls={`${name}-contents`}
+          onClick={navExpand}
+        >
+          {titleContents}
+        </button>
+      ) : (
+        <div className={titleClass}>{titleContents}</div>
+      )}
+      <Contents className={showContent} id={`${name}-contents`}>
+        {contents}
+      </Contents>
     </div>
   );
 }
@@ -104,7 +114,7 @@ export default function Details({
         {...item}
         expanded={selected === null ? null : selected === ind}
         expand={expand}
-        key={ind}
+        key={item.name}
       />,
     );
   }
@@ -122,6 +132,7 @@ export default function Details({
       <div className="w-full relative">
         <div className="sticky top-0 h-0 z-10">
           <ActionButton
+            label="Close project"
             hide={!expanded}
             onClick={collapse}
             className="ml-auto md:ml-0 -translate-x-6 translate-y-6 md:translate-y-24 bg-violet-200"

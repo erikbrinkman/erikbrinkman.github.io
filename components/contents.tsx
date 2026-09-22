@@ -4,9 +4,10 @@ import type { PropsWithChildren, ReactElement } from "react";
 export default function Contents({
   children,
   className = "",
-}: PropsWithChildren<{ className?: string }>): ReactElement {
+  id,
+}: PropsWithChildren<{ className?: string; id?: string }>): ReactElement {
   return (
-    <div className={`space-y-4 p-10 text-lg text-justify ${className}`}>
+    <div id={id} className={`space-y-4 p-10 text-lg ${className}`}>
       {children}
     </div>
   );
