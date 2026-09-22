@@ -26,7 +26,7 @@ function TextLink({
   return (
     <Link
       href={href}
-      className="text-violet-400 hover:underline underline-offset-4 decoration-violet-200"
+      className="text-violet-400 hover:underline focus-visible:underline underline-offset-4 decoration-violet-200"
     >
       {children}
     </Link>
@@ -75,7 +75,6 @@ const research: DetailsItem[] = [
         </div>
         <LinkList
           links={[{ name: "arXiv", href: "https://arxiv.org/pdf/2410.01606" }]}
-          className="decoration-violet-200 justify-center"
         />
       </>
     ),
@@ -113,7 +112,6 @@ const research: DetailsItem[] = [
             { name: "PDF", href: "https://dl.acm.org/authorize?N30521" },
             { name: "Video", href: "https://youtu.be/26djyL_5HsI" },
           ]}
-          className="decoration-violet-200 justify-center"
         />
       </>
     ),
@@ -125,128 +123,130 @@ export default function Home(): ReactElement {
     <div>
       <MobileNav />
       <div
-        className="h-screen overflow-y-scroll scroll-smooth overflow-x-clip"
+        className="h-dvh overflow-y-scroll scroll-smooth overflow-x-clip"
         style={{ perspective: "1px" }}
       >
         <Hero />
-        <Section
-          name="about"
-          headerClass="bg-violet-200"
-          navClass="decoration-white"
-        >
-          <Contents>
-            <p>
-              I am a researcher at{" "}
-              <TextLink href="https://linkedin.com">LinkedIn</TextLink>{" "}
-              currently working on LLM fairness and safety. Before joining
-              LinkedIn, I did similar work at{" "}
-              <TextLink href="https://meta.com">Meta</TextLink> from 2018 to
-              2025, after completing my PhD in Computer Science at the{" "}
-              <TextLink href="https://umich.edu">
-                University of Michigan
-              </TextLink>{" "}
-              in 2018. I was advised by{" "}
-              <TextLink href="https://strategicreasoning.org/michael-p-wellman/">
-                Michael Wellman
-              </TextLink>
-              .
-            </p>
-            <p>
-              I'm primarily interested in understanding and mitigating bias in
-              AI systems, but my research interests include the incentives and
-              dynamics in complex systems. My research often involves embedding
-              learning, user representation, fairness, recommender systems as
-              markets, and general learning.
-            </p>
-            <LinkList
-              links={[
-                {
-                  name: "Resume",
-                  href: "https://erikbrinkman.github.io/resume",
-                },
-                {
-                  name: "Curriculum Vitae",
-                  href: "https://erikbrinkman.github.io/resume/cv",
-                },
-              ]}
-              className="decoration-violet-200 justify-center"
-            />
-          </Contents>
-        </Section>
-        <Details
-          name="research"
-          items={research}
-          headerClass="text-gray-800 bg-white"
-          navClass="decoration-violet-200"
-        />
-        <Section
-          name="contact"
-          headerClass="text-white bg-gray-800"
-          navClass="decoration-violet-200"
-        >
-          <Contents>
-            <p>
-              You can find more information about me via any of the following
-              services:
-            </p>
-            <LinkList
-              links={[
-                {
-                  name: "Github",
-                  href: "https://github.com/erikbrinkman",
-                  icon: <SiGithub />,
-                },
-                {
-                  name: "Google Scholar",
-                  href: "https://scholar.google.com/citations?user=4CerxXxb7KAC",
-                  icon: <SiGooglescholar />,
-                },
-                {
-                  name: "email",
-                  href: "mailto:erik.brinkman@gmail.com",
-                  icon: <SiGmail />,
-                },
-                {
-                  name: "LinkedIn",
-                  href: "https://www.linkedin.com/in/erikbrinkman",
-                  icon: <FaLinkedin />,
-                },
-                {
-                  name: "hafa.io",
-                  href: "https://hafaio.github.io",
-                  icon: <HafaIcon />,
-                },
-              ]}
-              className="decoration-violet-200 justify-center"
-            />
-            <p className="pt-16">
-              Thanks to{" "}
-              <TextLink href="https://www.alisonwilcoxdesign.com/">
-                Alison Wilcox
-              </TextLink>{" "}
-              for the logo design,{" "}
-              <TextLink href="https://www.melaniedaveid.com/">
-                Melanie David
-              </TextLink>{" "}
-              for inspiring the design of this website, and{" "}
-              <TextLink href="https://www.sarforre.com">Sarah Forrest</TextLink>{" "}
-              for design guidance.
-            </p>
-            <p>
-              All project hero images come from{" "}
-              <TextLink href="https://unsplash.com/">Unsplash</TextLink>{" "}
-              courtesy of{" "}
-              <TextLink href="https://unsplash.com/@matteocatanese">
-                Matteo Catanese
-              </TextLink>{" "}
-              and{" "}
-              <TextLink href="https://unsplash.com/@marekpiwnicki">
-                Marek Piwnicki
-              </TextLink>
-              .
-            </p>
-          </Contents>
-        </Section>
+        <main>
+          <Section
+            name="about"
+            headerClass="bg-violet-200"
+            navClass="decoration-white"
+          >
+            <Contents>
+              <p>
+                I am a researcher at{" "}
+                <TextLink href="https://linkedin.com">LinkedIn</TextLink>{" "}
+                currently working on LLM fairness and safety. Before joining
+                LinkedIn, I did similar work at{" "}
+                <TextLink href="https://meta.com">Meta</TextLink> from 2018 to
+                2025, after completing my PhD in Computer Science at the{" "}
+                <TextLink href="https://umich.edu">
+                  University of Michigan
+                </TextLink>{" "}
+                in 2018. I was advised by{" "}
+                <TextLink href="https://strategicreasoning.org/michael-p-wellman/">
+                  Michael Wellman
+                </TextLink>
+                .
+              </p>
+              <p>
+                I'm primarily interested in understanding and mitigating bias in
+                AI systems, but my research interests include the incentives and
+                dynamics in complex systems. My research often involves
+                embedding learning, user representation, fairness, recommender
+                systems as markets, and general learning.
+              </p>
+              <LinkList
+                links={[
+                  {
+                    name: "Resume",
+                    href: "https://erikbrinkman.github.io/resume",
+                  },
+                  {
+                    name: "Curriculum Vitae",
+                    href: "https://erikbrinkman.github.io/resume/cv",
+                  },
+                ]}
+              />
+            </Contents>
+          </Section>
+          <Details
+            name="research"
+            items={research}
+            headerClass="text-gray-800 bg-white"
+            navClass="decoration-violet-200"
+          />
+          <Section
+            name="contact"
+            headerClass="text-white bg-gray-800"
+            navClass="decoration-violet-200"
+          >
+            <Contents>
+              <p>
+                You can find more information about me via any of the following
+                services:
+              </p>
+              <LinkList
+                links={[
+                  {
+                    name: "GitHub",
+                    href: "https://github.com/erikbrinkman",
+                    icon: <SiGithub />,
+                  },
+                  {
+                    name: "Google Scholar",
+                    href: "https://scholar.google.com/citations?user=4CerxXxb7KAC",
+                    icon: <SiGooglescholar />,
+                  },
+                  {
+                    name: "email",
+                    href: "mailto:erik.brinkman@gmail.com",
+                    icon: <SiGmail />,
+                  },
+                  {
+                    name: "LinkedIn",
+                    href: "https://www.linkedin.com/in/erikbrinkman",
+                    icon: <FaLinkedin />,
+                  },
+                  {
+                    name: "hafa.io",
+                    href: "https://hafaio.github.io",
+                    icon: <HafaIcon />,
+                  },
+                ]}
+              />
+              <p className="pt-16">
+                Thanks to{" "}
+                <TextLink href="https://www.alisonwilcoxdesign.com/">
+                  Alison Wilcox
+                </TextLink>{" "}
+                for the logo design,{" "}
+                <TextLink href="https://www.melaniedaveid.com/">
+                  Melanie David
+                </TextLink>{" "}
+                for inspiring the design of this website, and{" "}
+                <TextLink href="https://www.sarforre.com">
+                  Sarah Forrest
+                </TextLink>{" "}
+                for design guidance.
+              </p>
+              <p>
+                All project hero images come from{" "}
+                <TextLink href="https://unsplash.com/">Unsplash</TextLink>{" "}
+                courtesy of{" "}
+                <TextLink href="https://unsplash.com/@matteocatanese">
+                  Matteo Catanese
+                </TextLink>{" "}
+                and{" "}
+                <TextLink href="https://unsplash.com/@marekpiwnicki">
+                  Marek Piwnicki
+                </TextLink>
+                .
+              </p>
+            </Contents>
+          </Section>
+        </main>
         <Footer />
       </div>
     </div>

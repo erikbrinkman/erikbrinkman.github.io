@@ -1,12 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&family=Lato&display=swap')
-layer(base);
-
 @import 'tailwindcss';
 
 @theme {
   --font-section: Jaapokki Enhance, sans-serif;
-  --font-details: Josefin Sans, sans-serif;
-  --font-sans: Lato, san-serif;
+  --font-details: var(--font-josefin-sans), sans-serif;
+  --font-sans: var(--font-lato), sans-serif;
 
   --text-name: min(6rem, 16vw);
 }

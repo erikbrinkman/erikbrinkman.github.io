@@ -1,6 +1,6 @@
 "use client";
 
-import { type ReactElement, useCallback, useState } from "react";
+import { type ReactElement, useCallback, useEffect, useState } from "react";
 import { MdClose, MdMenu } from "react-icons/md";
 import { navItems } from "../utils/nav-items";
 import ActionButton from "./action-button";
@@ -13,7 +13,11 @@ interface LinkItemProps {
 
 function LinkItem({ name, href, close }: LinkItemProps): ReactElement {
   return (
-    <a href={href} onClick={close} className="uppercase font-bold">
+    <a
+      href={href}
+      onClick={close}
+      className="uppercase font-bold focus-visible:underline underline-offset-8 decoration-2"
+    >
       {name}
     </a>
   );
@@ -21,14 +25,30 @@ function LinkItem({ name, href, close }: LinkItemProps): ReactElement {
 
 export default function MobileNav(): ReactElement {
   const [collapsed, setCollapsed] = useState(true);
-  const click = useCallback(() => {
-    setCollapsed(!collapsed);
-  }, [collapsed]);
+  const toggle = useCallback(() => {
+    setCollapsed((current) => !current);
+  }, []);
   const close = useCallback(() => {
     setCollapsed(true);
   }, []);
-  const className = collapsed ? "hidden" : "";
 
+  useEffect(() => {
+    if (collapsed) {
+      return undefined;
+    } else {
+      const closeOnEscape = (event: KeyboardEvent) => {
+        if (event.key === "Escape") {
+          setCollapsed(true);
+        }
+      };
+      window.addEventListener("keydown", closeOnEscape);
+      return () => {
+        window.removeEventListener("keydown", closeOnEscape);
+      };
+    }
+  }, [collapsed]);
+
+  const className = collapsed ? "hidden" : "";
   const linkItems = navItems.map((item) => (
     <LinkItem {...item} close={close} key={`${item.name}:${item.href}`} />
   ));
@@ -36,13 +56,15 @@ export default function MobileNav(): ReactElement {
   return (
     <div className="fixed z-10 w-full md:hidden">
       <ActionButton
-        onClick={click}
+        label={collapsed ? "Open menu" : "Close menu"}
+        expanded={!collapsed}
+        onClick={toggle}
         className="absolute m-6 z-50 bg-gray-800 text-white"
       >
         {icon}
       </ActionButton>
       <div
-        className={`absolute h-screen w-full z-40 flex flex-col justify-center items-center space-y-2 bg-white text-xl ${className}`}
+        className={`absolute h-dvh w-full z-40 flex flex-col justify-center items-center space-y-2 bg-white text-xl ${className}`}
       >
         {linkItems}
       </div>

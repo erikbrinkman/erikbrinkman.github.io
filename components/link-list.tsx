@@ -11,7 +11,7 @@ function Item({ name, href, icon }: LinkItem): ReactElement {
   return (
     <Link
       href={href}
-      className="font-bold hover:underline decoration-inherit h-8"
+      className="font-bold hover:underline focus-visible:underline decoration-inherit h-8"
     >
       <span className="inline-flex space-x-2 items-center">
         {icon}
@@ -23,27 +23,32 @@ function Item({ name, href, icon }: LinkItem): ReactElement {
 
 export default function LinkList({
   links,
-  className = "",
+  className = "decoration-violet-200 justify-center",
   tag = "div",
 }: {
   links: readonly LinkItem[];
   className?: string;
   tag?: "div" | "nav";
 }): ReactElement {
-  const [first, ...rest] = links;
-  const items = [<Item {...first} key="0" />];
-  for (const [i, item] of rest.entries()) {
-    items.push(
-      <span className="select-none" key={`sep-${i}`}>
-        /
-      </span>,
-    );
-    items.push(<Item {...item} key={i + 1} />);
+  const items = [];
+  for (const item of links) {
+    if (items.length) {
+      items.push(
+        <span
+          className="select-none"
+          aria-hidden="true"
+          key={`sep-${item.href}`}
+        >
+          /
+        </span>,
+      );
+    }
+    items.push(<Item {...item} key={item.href} />);
   }
   const Tag = tag;
   return (
     <Tag
-      className={`flex flex-wrap space-x-4 uppercase no-underline text-sm decoration-2 underline-offset-8 ${className}`}
+      className={`flex flex-wrap gap-x-4 uppercase no-underline text-sm decoration-2 underline-offset-8 ${className}`}
     >
       {items}
     </Tag>

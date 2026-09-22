@@ -1,12 +1,16 @@
 import type { PropsWithChildren, ReactElement } from "react";
 
 export default function ActionButton({
+  label,
   hide = false,
+  expanded,
   className = "",
   onClick,
   children,
 }: PropsWithChildren<{
+  label: string;
   hide?: boolean;
+  expanded?: boolean;
   className?: string;
   onClick?: () => void;
 }>): ReactElement {
@@ -15,10 +19,9 @@ export default function ActionButton({
   return (
     <button
       type="button"
+      aria-label={label}
+      aria-expanded={expanded}
       onClick={onClick}
-      onKeyUp={() => {
-        // TODO allow keyboard nav
-      }}
       className={`transition-transform duration-1000 ${scale} w-12 h-12 ${cursor} flex flex-col justify-center items-center ${className}`}
     >
       {children}

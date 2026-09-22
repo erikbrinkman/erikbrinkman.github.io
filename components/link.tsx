@@ -1,10 +1,11 @@
 import Link from "next/link";
 import type { PropsWithChildren, ReactElement } from "react";
 
+// only web links leave the site; mailto and friends hand off to another app
 function isExternal(url: string): boolean {
   try {
-    new URL(url);
-    return true;
+    const { protocol } = new URL(url);
+    return protocol === "http:" || protocol === "https:";
   } catch {
     return false;
   }
