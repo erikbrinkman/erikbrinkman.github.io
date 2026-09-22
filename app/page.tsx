@@ -1,19 +1,16 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import type { PropsWithChildren, ReactElement } from "react";
 import { FaLinkedin } from "react-icons/fa6";
-import { SiFacebook, SiGithub, SiGmail, SiGooglescholar } from "react-icons/si";
+import { SiGithub, SiGmail, SiGooglescholar } from "react-icons/si";
 import Contents from "../components/contents";
 import Details, { type DetailsItem } from "../components/details";
 import Footer from "../components/footer";
+import HafaIcon from "../components/hafa-icon";
 import Hero from "../components/hero";
 import Link from "../components/link";
 import LinkList from "../components/link-list";
 import MobileNav from "../components/mobile-nav";
 import Section from "../components/section";
-import cdc from "../images/cdc-W7L6KCaNfRU-unsplash.jpg";
-import d3dag from "../images/d3-dag.png";
-import mountains from "../images/jon-r8AFUpRp0J0-unsplash.jpg";
 import goat from "../images/marek-piwnicki-WYtS0f4IaT8-unsplash.jpg";
 import newyork from "../images/matteo-catanese-tr7PoBH0Aow-unsplash.jpg";
 
@@ -36,7 +33,7 @@ function TextLink({
   );
 }
 
-const projects: DetailsItem[] = [
+const research: DetailsItem[] = [
   {
     name: "goat",
     title: "GOAT",
@@ -71,34 +68,13 @@ const projects: DetailsItem[] = [
           state-of-the-art LLMs, with an ASR@10 of 97% against Llama 3.1 and 88%
           against GPT-4-Turbo on the JailbreakBench dataset.
         </p>
-        <LinkList
-          links={[{ name: "arXiv", href: "https://arxiv.org/pdf/2410.01606" }]}
-          className="decoration-violet-200 justify-center"
-        />
-      </>
-    ),
-  },
-  {
-    name: "d3dag",
-    title: "D3 DAG",
-    subtitle: "DAG layout library",
-    img: cdc.src,
-    contents: (
-      <>
-        <p>
-          D3 DAG is an open source typescript library for rendering directed
-          acyclic graphs using a few different layout methods. It&apos;s based
-          around the layered dag methodology from Sugiyama.
-        </p>
-        <p>Using D3 Dag you can render DAGs like:</p>
-        <div className="max-w-xs mx-auto">
-          <Image {...d3dag} alt="example dag" />
+        <div className="flex justify-around uppercase">
+          <span>M. Pavlova</span>
+          <span>E. Brinkman</span>
+          <span>et al.</span>
         </div>
         <LinkList
-          links={[
-            { name: "NPM", href: "https://www.npmjs.com/package/d3-dag" },
-            { name: "Github", href: "https://github.com/erikbrinkman/d3-dag" },
-          ]}
+          links={[{ name: "arXiv", href: "https://arxiv.org/pdf/2410.01606" }]}
           className="decoration-violet-200 justify-center"
         />
       </>
@@ -136,51 +112,6 @@ const projects: DetailsItem[] = [
           links={[
             { name: "PDF", href: "https://dl.acm.org/authorize?N30521" },
             { name: "Video", href: "https://youtu.be/26djyL_5HsI" },
-          ]}
-          className="decoration-violet-200 justify-center"
-        />
-      </>
-    ),
-  },
-  {
-    name: "repub",
-    title: "reMarkable ePub",
-    subtitle: "ePub render for reMarkable",
-    img: mountains.src,
-    contents: (
-      <>
-        <p>
-          rePub is a chrome extension that provides website to epub conversion
-          specifically tailored to viewing on remarkable. It includes several
-          improvements over the standard reMarkable extension for saving
-          websites:
-        </p>
-        <ul className="list-[square] pl-4">
-          <li>
-            It saves images, making many articles much more detailed. This
-            extension also provides options to tweak the uploaded images, making
-            them much more readable.
-          </li>
-          <li>
-            It uses the page capture api, allowing it to require fewer
-            permissions than the default Read on reMarkable extension.
-          </li>
-          <li>
-            It provides many other options like adjusting the default
-            justification or margins.
-          </li>
-          <li>
-            It&apos;s open source so it can be improved and modified if
-            it&apos;s not working as desired.
-          </li>
-        </ul>
-        <LinkList
-          links={[
-            {
-              name: "Chrome",
-              href: "https://chrome.google.com/webstore/detail/repub/blkjpagbjaekkpojgcgdapmikoaolpbl",
-            },
-            { name: "Github", href: "https://github.com/hafaio/repub" },
           ]}
           className="decoration-violet-200 justify-center"
         />
@@ -243,8 +174,8 @@ export default function Home(): ReactElement {
           </Contents>
         </Section>
         <Details
-          name="projects"
-          items={projects}
+          name="research"
+          items={research}
           headerClass="text-gray-800 bg-white"
           navClass="decoration-violet-200"
         />
@@ -281,9 +212,9 @@ export default function Home(): ReactElement {
                   icon: <FaLinkedin />,
                 },
                 {
-                  name: "Facebook",
-                  href: "https://www.facebook.com/erik.brinkman",
-                  icon: <SiFacebook />,
+                  name: "hafa.io",
+                  href: "https://hafaio.github.io",
+                  icon: <HafaIcon />,
                 },
               ]}
               className="decoration-violet-200 justify-center"
@@ -305,11 +236,9 @@ export default function Home(): ReactElement {
               All project hero images come from{" "}
               <TextLink href="https://unsplash.com/">Unsplash</TextLink>{" "}
               courtesy of{" "}
-              <TextLink href="https://unsplash.com/@cdc">CDC</TextLink>,{" "}
               <TextLink href="https://unsplash.com/@matteocatanese">
                 Matteo Catanese
-              </TextLink>
-              , <TextLink href="https://unsplash.com/@j_mk18">Jon</TextLink>,
+              </TextLink>{" "}
               and{" "}
               <TextLink href="https://unsplash.com/@marekpiwnicki">
                 Marek Piwnicki
