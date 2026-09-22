@@ -6,14 +6,17 @@ export default function Section({
   headerClass = "",
   navClass = "",
   expanded = false,
+  centered = false,
   children,
 }: PropsWithChildren<{
   name: string;
   headerClass?: string;
   navClass?: string;
   expanded?: boolean;
+  centered?: boolean;
 }>): ReactElement {
   const titleBasis = expanded ? "md:basis-1/4" : "md:basis-1/2";
+  const bodyLayout = centered ? "md:flex md:items-center" : "";
   const headingId = `${name}-heading`;
 
   return (
@@ -23,20 +26,22 @@ export default function Section({
       aria-labelledby={headingId}
     >
       <div
-        className={`h-dvh w-full transition-all duration-1000 grow md:sticky top-0 flex flex-col p-6 justify-between items-center ${titleBasis} ${headerClass}`}
+        className={`h-dvh w-full transition-all duration-700 ease-reveal grow md:sticky top-0 flex flex-col p-6 justify-between items-center ${titleBasis} ${headerClass}`}
       >
         <div />
         <h2
           id={headingId}
-          className="font-section text-8xl text-center capitalize"
+          className="font-section text-8xl leading-none text-center capitalize"
         >
           {name}
         </h2>
         <div>
-          <Nav className={`hidden md:block ${navClass}`} />
+          <Nav className={`hidden md:flex ${navClass}`} />
         </div>
       </div>
-      <div className="md:min-h-dvh w-full transition-all duration-1000 md:basis-1/2 grow">
+      <div
+        className={`md:min-h-dvh w-full transition-all duration-700 ease-reveal md:basis-1/2 grow ${bodyLayout}`}
+      >
         {children}
       </div>
     </section>

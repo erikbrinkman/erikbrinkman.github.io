@@ -1,54 +1,81 @@
-import Image from "next/image";
-import type { ReactElement } from "react";
-import logo from "../images/logo.svg";
+"use client";
 
-function Logo({ clipPath }: { clipPath?: string }): ReactElement {
-  return (
-    <Image
-      alt="logo"
-      src={logo}
-      width="300"
-      height="300"
-      style={{ clipPath }}
-    />
-  );
-}
+import { type ReactElement, useEffect, useRef } from "react";
+import Logo from "./logo";
 
-function Parallax({
-  parallax = 0,
-  clipPath,
-}: {
-  parallax?: number;
-  clipPath?: string;
-}): ReactElement {
-  // NOTE ideally we want parallax to be positive, but that places elements
-  // behind the background and extends y beyond the area we want. I'm not sure
-  // if there's a way to address that in an elegant way
-  // TODO why this is this translate x necessary, and still not aligned, in
-  // google mobile dev, it's not necessary, so it's not clear what's causing
-  // it...
-  return (
-    <div
-      className="absolute w-full h-full flex flex-col justify-center items-center"
-      style={{
-        transform: `translate3d(0, 0, ${-parallax}px) scale(${parallax + 1})`,
-      }}
-    >
-      <div>
-        <Logo clipPath={clipPath} />
-      </div>
-    </div>
-  );
-}
+// how far the logo trails the page, and how small it starts: the same numbers the
+// footer-drift and footer-pop keyframes use
+const driftVh = 20;
+const startScale = 0.7;
+// share of the remaining distance the logo covers each frame
+const follow = 0.2;
 
 export default function Footer(): ReactElement {
-  // TODO get a sliced parallax working
+  const track = useRef<HTMLElement>(null);
+  const logo = useRef<SVGSVGElement>(null);
+
+  useEffect(() => {
+    const trackElement = track.current;
+    const logoElement = logo.current;
+    if (
+      trackElement === null ||
+      logoElement === null ||
+      CSS.supports("animation-timeline: view()") ||
+      matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      return undefined;
+    } else {
+      // easing the drawn progress toward the scroll position, rather than jumping to it on
+      // every scroll event, gives the logo the same lag the scroll timeline produces
+      let shown = -1;
+      let running = false;
+
+      const settle = () => {
+        const { top, height } = trackElement.getBoundingClientRect();
+        const wanted = Math.min(
+          1,
+          Math.max(0, (window.innerHeight - top) / height),
+        );
+        const stepped = shown < 0 ? wanted : shown + (wanted - shown) * follow;
+        const landed = Math.abs(wanted - stepped) < 0.001;
+        shown = landed ? wanted : stepped;
+        const popped = 1 - (1 - shown) ** 3;
+        logoElement.style.translate = `0 ${(1 - shown) * driftVh}vh`;
+        logoElement.style.scale = `${startScale + (1 - startScale) * popped}`;
+        logoElement.style.opacity = `${popped}`;
+        if (landed) {
+          running = false;
+        } else {
+          requestAnimationFrame(settle);
+        }
+      };
+      const wake = () => {
+        if (!running) {
+          running = true;
+          requestAnimationFrame(settle);
+        }
+      };
+
+      wake();
+      window.addEventListener("scroll", wake, { passive: true });
+      window.addEventListener("resize", wake);
+      return () => {
+        window.removeEventListener("scroll", wake);
+        window.removeEventListener("resize", wake);
+      };
+    }
+  }, []);
+
   return (
     <footer
-      className="w-full h-dvh relative bg-violet-200"
-      style={{ transformStyle: "preserve-3d" }}
+      ref={track}
+      className="footer-track w-full h-dvh relative overflow-hidden flex justify-center items-center bg-footer text-footer-ink"
     >
-      <Parallax parallax={-0.8} />
+      <Logo
+        ref={logo}
+        label="Erik Brinkman"
+        className="footer-logo w-[min(300px,60vw)] h-auto"
+      />
     </footer>
   );
 }

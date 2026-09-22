@@ -23,7 +23,7 @@ function Item({ name, href, icon }: LinkItem): ReactElement {
 
 export default function LinkList({
   links,
-  className = "decoration-violet-200 justify-center",
+  className = "decoration-link-line justify-center",
   tag = "div",
 }: {
   links: readonly LinkItem[];
@@ -35,7 +35,7 @@ export default function LinkList({
     if (items.length) {
       items.push(
         <span
-          className="select-none"
+          className="select-none px-1"
           aria-hidden="true"
           key={`sep-${item.href}`}
         >
@@ -48,7 +48,7 @@ export default function LinkList({
   const Tag = tag;
   return (
     <Tag
-      className={`flex flex-wrap gap-x-4 uppercase no-underline text-sm decoration-2 underline-offset-8 ${className}`}
+      className={`flex flex-wrap items-baseline gap-x-4 uppercase no-underline text-sm tracking-wide decoration-2 underline-offset-8 ${className}`}
     >
       {items}
     </Tag>

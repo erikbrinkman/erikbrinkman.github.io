@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import type { PropsWithChildren, ReactElement } from "react";
 import { FaLinkedin } from "react-icons/fa6";
 import { SiGithub, SiGmail, SiGooglescholar } from "react-icons/si";
+import Authors from "../components/authors";
+import ContactList from "../components/contact-list";
 import Contents from "../components/contents";
 import Details, { type DetailsItem } from "../components/details";
 import Footer from "../components/footer";
@@ -18,6 +20,8 @@ import { siteDescription, siteTitle, siteUrl } from "../utils/site";
 const github = "https://github.com/erikbrinkman";
 const scholar = "https://scholar.google.com/citations?user=4CerxXxb7KAC";
 const linkedin = "https://www.linkedin.com/in/erikbrinkman";
+const email = "erik.brinkman@gmail.com";
+const hafa = "https://hafaio.github.io";
 const headshot = "/headshot.jpg";
 
 export const metadata: Metadata = {
@@ -60,10 +64,18 @@ function TextLink({
   return (
     <Link
       href={href}
-      className="text-violet-400 hover:underline focus-visible:underline underline-offset-4 decoration-violet-200"
+      className="text-link hover:underline focus-visible:underline underline-offset-4 decoration-link-line"
     >
       {children}
     </Link>
+  );
+}
+
+function PaperMeta({ children }: PropsWithChildren): ReactElement {
+  return (
+    <div className="pt-5 border-t border-rule flex flex-col gap-3">
+      {children}
+    </div>
   );
 }
 
@@ -102,14 +114,14 @@ const research: DetailsItem[] = [
           state-of-the-art LLMs, with an ASR@10 of 97% against Llama 3.1 and 88%
           against GPT-4-Turbo on the JailbreakBench dataset.
         </p>
-        <div className="flex justify-around uppercase">
-          <span>M. Pavlova</span>
-          <span>E. Brinkman</span>
-          <span>et al.</span>
-        </div>
-        <LinkList
-          links={[{ name: "arXiv", href: "https://arxiv.org/pdf/2410.01606" }]}
-        />
+        <PaperMeta>
+          <Authors names={["M. Pavlova", "E. Brinkman", "et al."]} />
+          <LinkList
+            links={[
+              { name: "arXiv", href: "https://arxiv.org/pdf/2410.01606" },
+            ]}
+          />
+        </PaperMeta>
       </>
     ),
   },
@@ -137,16 +149,15 @@ const research: DetailsItem[] = [
           of batch frequencies that are near optimally efficient; this range is
           more pronounced in thick markets.
         </p>
-        <div className="flex justify-around uppercase">
-          <span>E. Brinkman</span>
-          <span>M. P. Wellman</span>
-        </div>
-        <LinkList
-          links={[
-            { name: "PDF", href: "https://dl.acm.org/authorize?N30521" },
-            { name: "Video", href: "https://youtu.be/26djyL_5HsI" },
-          ]}
-        />
+        <PaperMeta>
+          <Authors names={["E. Brinkman", "M. P. Wellman"]} />
+          <LinkList
+            links={[
+              { name: "PDF", href: "https://dl.acm.org/authorize?N30521" },
+              { name: "Video", href: "https://youtu.be/26djyL_5HsI" },
+            ]}
+          />
+        </PaperMeta>
       </>
     ),
   },
@@ -161,101 +172,106 @@ export default function Home(): ReactElement {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
       />
       <MobileNav />
-      <div
-        className="h-dvh overflow-y-scroll scroll-smooth overflow-x-clip"
-        style={{ perspective: "1px" }}
-      >
-        <Hero />
-        <main>
-          <Section
-            name="about"
-            headerClass="bg-violet-200"
-            navClass="decoration-white"
-          >
-            <Contents>
+      <Hero />
+      <main>
+        <Section
+          name="about"
+          headerClass="bg-about text-about-ink"
+          navClass="decoration-about-line"
+          centered
+        >
+          <Contents>
+            <p>
+              I am a researcher at{" "}
+              <TextLink href="https://linkedin.com">LinkedIn</TextLink>{" "}
+              currently working on LLM fairness and safety. Before joining
+              LinkedIn, I did similar work at{" "}
+              <TextLink href="https://meta.com">Meta</TextLink> from 2018 to
+              2025, after completing my PhD in Computer Science at the{" "}
+              <TextLink href="https://umich.edu">
+                University of Michigan
+              </TextLink>{" "}
+              in 2018. I was advised by{" "}
+              <TextLink href="https://strategicreasoning.org/michael-p-wellman/">
+                Michael Wellman
+              </TextLink>
+              .
+            </p>
+            <p>
+              I'm primarily interested in understanding and mitigating bias in
+              AI systems, but my research interests include the incentives and
+              dynamics in complex systems. My research often involves embedding
+              learning, user representation, fairness, recommender systems as
+              markets, and general learning.
+            </p>
+            <LinkList
+              className="decoration-link-line justify-start"
+              links={[
+                {
+                  name: "Resume",
+                  href: "https://erikbrinkman.github.io/resume",
+                },
+                {
+                  name: "Curriculum Vitae",
+                  href: "https://erikbrinkman.github.io/resume/cv",
+                },
+              ]}
+            />
+          </Contents>
+        </Section>
+        <Details
+          name="research"
+          items={research}
+          headerClass="bg-research text-research-ink"
+          navClass="decoration-research-line"
+        />
+        <Section
+          name="contact"
+          headerClass="bg-contact text-contact-ink"
+          navClass="decoration-contact-line"
+          centered
+        >
+          <Contents>
+            <p>
+              You can find more information about me via any of the following
+              services:
+            </p>
+            <ContactList
+              contacts={[
+                {
+                  name: "GitHub",
+                  handle: "github.com/erikbrinkman",
+                  href: github,
+                  icon: <SiGithub />,
+                },
+                {
+                  name: "Google Scholar",
+                  handle: "scholar.google.com",
+                  href: scholar,
+                  icon: <SiGooglescholar />,
+                },
+                {
+                  name: "email",
+                  handle: email,
+                  href: `mailto:${email}`,
+                  icon: <SiGmail />,
+                },
+                {
+                  name: "LinkedIn",
+                  handle: "linkedin.com/in/erikbrinkman",
+                  href: linkedin,
+                  icon: <FaLinkedin />,
+                },
+                {
+                  name: "hafa.io",
+                  handle: "hafaio.github.io",
+                  href: hafa,
+                  icon: <HafaIcon />,
+                },
+              ]}
+            />
+            <div className="mt-10 pt-6 border-t border-rule flex flex-col gap-3 text-[0.9375rem] text-muted">
               <p>
-                I am a researcher at{" "}
-                <TextLink href="https://linkedin.com">LinkedIn</TextLink>{" "}
-                currently working on LLM fairness and safety. Before joining
-                LinkedIn, I did similar work at{" "}
-                <TextLink href="https://meta.com">Meta</TextLink> from 2018 to
-                2025, after completing my PhD in Computer Science at the{" "}
-                <TextLink href="https://umich.edu">
-                  University of Michigan
-                </TextLink>{" "}
-                in 2018. I was advised by{" "}
-                <TextLink href="https://strategicreasoning.org/michael-p-wellman/">
-                  Michael Wellman
-                </TextLink>
-                .
-              </p>
-              <p>
-                I'm primarily interested in understanding and mitigating bias in
-                AI systems, but my research interests include the incentives and
-                dynamics in complex systems. My research often involves
-                embedding learning, user representation, fairness, recommender
-                systems as markets, and general learning.
-              </p>
-              <LinkList
-                links={[
-                  {
-                    name: "Resume",
-                    href: "https://erikbrinkman.github.io/resume",
-                  },
-                  {
-                    name: "Curriculum Vitae",
-                    href: "https://erikbrinkman.github.io/resume/cv",
-                  },
-                ]}
-              />
-            </Contents>
-          </Section>
-          <Details
-            name="research"
-            items={research}
-            headerClass="text-gray-800 bg-white"
-            navClass="decoration-violet-200"
-          />
-          <Section
-            name="contact"
-            headerClass="text-white bg-gray-800"
-            navClass="decoration-violet-200"
-          >
-            <Contents>
-              <p>
-                You can find more information about me via any of the following
-                services:
-              </p>
-              <LinkList
-                links={[
-                  {
-                    name: "GitHub",
-                    href: github,
-                    icon: <SiGithub />,
-                  },
-                  {
-                    name: "Google Scholar",
-                    href: scholar,
-                    icon: <SiGooglescholar />,
-                  },
-                  {
-                    name: "email",
-                    href: "mailto:erik.brinkman@gmail.com",
-                    icon: <SiGmail />,
-                  },
-                  {
-                    name: "LinkedIn",
-                    href: linkedin,
-                    icon: <FaLinkedin />,
-                  },
-                  {
-                    name: "hafa.io",
-                    href: "https://hafaio.github.io",
-                    icon: <HafaIcon />,
-                  },
-                ]}
-              />
-              <p className="pt-16">
                 Thanks to{" "}
                 <TextLink href="https://www.alisonwilcoxdesign.com/">
                   Alison Wilcox
@@ -283,11 +299,11 @@ export default function Home(): ReactElement {
                 </TextLink>
                 .
               </p>
-            </Contents>
-          </Section>
-        </main>
-        <Footer />
-      </div>
+            </div>
+          </Contents>
+        </Section>
+      </main>
+      <Footer />
     </div>
   );
 }
