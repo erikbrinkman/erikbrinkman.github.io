@@ -13,10 +13,44 @@ import MobileNav from "../components/mobile-nav";
 import Section from "../components/section";
 import goat from "../images/marek-piwnicki-WYtS0f4IaT8-unsplash.jpg";
 import newyork from "../images/matteo-catanese-tr7PoBH0Aow-unsplash.jpg";
+import { siteDescription, siteTitle, siteUrl } from "../utils/site";
+
+const github = "https://github.com/erikbrinkman";
+const scholar = "https://scholar.google.com/citations?user=4CerxXxb7KAC";
+const linkedin = "https://www.linkedin.com/in/erikbrinkman";
+const headshot = "/headshot.jpg";
 
 export const metadata: Metadata = {
-  title: "Erik Brinkman",
-  description: "Researcher in AI Fairness and Safety",
+  metadataBase: new URL(siteUrl),
+  title: siteTitle,
+  description: siteDescription,
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    url: siteUrl,
+    siteName: siteTitle,
+    title: siteTitle,
+    description: siteDescription,
+    images: [{ url: headshot, width: 1280, height: 1280, alt: siteTitle }],
+  },
+  twitter: {
+    // the headshot is square, so the large card would crop it
+    card: "summary",
+    title: siteTitle,
+    description: siteDescription,
+    images: [headshot],
+  },
+};
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: siteTitle,
+  url: siteUrl,
+  image: `${siteUrl}${headshot}`,
+  jobTitle: "Researcher",
+  description: siteDescription,
+  sameAs: [github, scholar, linkedin],
 };
 
 function TextLink({
@@ -121,6 +155,11 @@ const research: DetailsItem[] = [
 export default function Home(): ReactElement {
   return (
     <div>
+      <script
+        type="application/ld+json"
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD must not be HTML-escaped
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+      />
       <MobileNav />
       <div
         className="h-dvh overflow-y-scroll scroll-smooth overflow-x-clip"
@@ -191,12 +230,12 @@ export default function Home(): ReactElement {
                 links={[
                   {
                     name: "GitHub",
-                    href: "https://github.com/erikbrinkman",
+                    href: github,
                     icon: <SiGithub />,
                   },
                   {
                     name: "Google Scholar",
-                    href: "https://scholar.google.com/citations?user=4CerxXxb7KAC",
+                    href: scholar,
                     icon: <SiGooglescholar />,
                   },
                   {
@@ -206,7 +245,7 @@ export default function Home(): ReactElement {
                   },
                   {
                     name: "LinkedIn",
-                    href: "https://www.linkedin.com/in/erikbrinkman",
+                    href: linkedin,
                     icon: <FaLinkedin />,
                   },
                   {
