@@ -6,6 +6,40 @@
   --font-sans: var(--font-lato), sans-serif;
 
   --text-name: min(6rem, 16vw);
+
+  /* one curve for every layout reveal, so a tile, its heading column, and the
+     abstract all settle together */
+  --ease-reveal: cubic-bezier(0.32, 0.72, 0, 1);
+
+  --color-ground: var(--ground);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-rule: var(--rule);
+  --color-link: var(--link);
+  --color-link-line: var(--link-line);
+
+  --color-hero: var(--hero-bg);
+  --color-hero-ink: var(--hero-ink);
+
+  --color-about: var(--about-bg);
+  --color-about-ink: var(--about-ink);
+  --color-about-line: var(--about-line);
+
+  --color-research: var(--research-bg);
+  --color-research-ink: var(--research-ink);
+  --color-research-line: var(--research-line);
+
+  --color-contact: var(--contact-bg);
+  --color-contact-ink: var(--contact-ink);
+  --color-contact-line: var(--contact-line);
+
+  --color-footer: var(--footer-bg);
+  --color-footer-ink: var(--footer-ink);
+
+  --color-button: var(--button-bg);
+  --color-button-ink: var(--button-ink);
+  --color-menu: var(--menu-bg);
+  --color-menu-ink: var(--menu-ink);
 }
 
 @layer base {
@@ -15,5 +49,169 @@
     font-style: normal;
     font-weight: 400;
     font-display: swap;
+  }
+
+  :root {
+    color-scheme: light;
+
+    --ground: #ffffff;
+    --ink: #1f2937;
+    --muted: #6b6580;
+    --rule: #e6e2f1;
+    --link: #6d28d9;
+    --link-line: #c4b5fd;
+
+    --hero-bg: #4b5563;
+    --hero-ink: #ffffff;
+
+    --about-bg: #ddd6fe;
+    --about-ink: #1f2937;
+    --about-line: #ffffff;
+
+    --research-bg: #ffffff;
+    --research-ink: #1f2937;
+    --research-line: #ddd6fe;
+
+    --contact-bg: #1f2937;
+    --contact-ink: #ffffff;
+    --contact-line: #ddd6fe;
+
+    --footer-bg: #ddd6fe;
+    --footer-ink: #000000;
+
+    --button-bg: #ddd6fe;
+    --button-ink: #1f2937;
+    --menu-bg: #1f2937;
+    --menu-ink: #ffffff;
+
+    --tile-scrim: 18 10 40;
+    --focus: #7c3aed;
+  }
+
+  /* the lavender's hue and chroma at a third of its lightness (oklch 0.33 0.05 293), so the
+     purple reads as the same color in shadow; accents sit at middle lightness. The hero and
+     the paper photos keep the values they have in daylight. */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+
+      --ground: #16131d;
+      --ink: #e9e5f3;
+      --muted: #a59fb8;
+      --rule: #2c2738;
+      --link: #beb6e8;
+      --link-line: #726a97;
+
+      --about-bg: #36314d;
+      --about-ink: #ddd6fe;
+      --about-line: #ddd6fe;
+
+      --research-bg: #1d1926;
+      --research-ink: #e9e5f3;
+      --research-line: #8179a7;
+
+      --contact-bg: #0d0b11;
+      --contact-ink: #f4f2f9;
+      --contact-line: #8179a7;
+
+      --footer-bg: #36314d;
+      --footer-ink: #ddd6fe;
+
+      --menu-bg: #ddd6fe;
+      --menu-ink: #1f2937;
+
+      --tile-scrim: 10 6 22;
+      --focus: #beb6e8;
+    }
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--ground);
+    color: var(--ink);
+    font-size: 1.125rem;
+    line-height: 1.65;
+    overflow-x: clip;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      transition-duration: 0.01ms !important;
+      transition-delay: 0s !important;
+      animation-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* keeps a paper title legible over the pale parts of its photo */
+.tile-scrim {
+  background: linear-gradient(
+    to top,
+    rgb(var(--tile-scrim) / 0.55),
+    rgb(var(--tile-scrim) / 0.18) 45%,
+    rgb(var(--tile-scrim) / 0.22)
+  );
+}
+
+/* the footer logo lags the page as the footer scrolls in, growing and fading up to its resting
+   place. A scroll timeline runs it off the main thread; footer.tsx animates the same values
+   frame by frame where there is none. */
+@keyframes footer-drift {
+  from {
+    translate: 0 20vh;
+  }
+  to {
+    translate: 0 0;
+  }
+}
+
+@keyframes footer-pop {
+  from {
+    scale: 0.7;
+    opacity: 0;
+  }
+  to {
+    scale: 1;
+    opacity: 1;
+  }
+}
+
+.footer-track {
+  view-timeline: --footer block;
+}
+
+.footer-logo {
+  will-change: translate, scale, opacity;
+}
+
+@supports (animation-timeline: view()) {
+  /* longhands only: the animation shorthand would set a 0s duration, and a scroll-driven
+     animation with a duration snaps to its end instead of following the range */
+  .footer-logo {
+    animation-name: footer-drift, footer-pop;
+    animation-timing-function: linear, cubic-bezier(0.22, 1, 0.36, 1);
+    animation-fill-mode: both;
+    animation-timeline: --footer;
+    animation-range: entry 0% entry 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-logo {
+    animation: none;
   }
 }

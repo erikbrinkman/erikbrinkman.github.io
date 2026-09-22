@@ -16,7 +16,7 @@ function LinkItem({ name, href, close }: LinkItemProps): ReactElement {
     <a
       href={href}
       onClick={close}
-      className="uppercase font-bold focus-visible:underline underline-offset-8 decoration-2"
+      className="uppercase font-bold hover:underline focus-visible:underline underline-offset-8 decoration-2 decoration-link-line"
     >
       {name}
     </a>
@@ -59,12 +59,12 @@ export default function MobileNav(): ReactElement {
         label={collapsed ? "Open menu" : "Close menu"}
         expanded={!collapsed}
         onClick={toggle}
-        className="absolute m-6 z-50 bg-gray-800 text-white"
+        className="absolute m-6 z-50 bg-menu text-menu-ink"
       >
         {icon}
       </ActionButton>
       <div
-        className={`absolute h-dvh w-full z-40 flex flex-col justify-center items-center space-y-2 bg-white text-xl ${className}`}
+        className={`absolute h-dvh w-full z-40 flex flex-col justify-center items-center space-y-2 bg-ground text-ink text-xl ${className}`}
       >
         {linkItems}
       </div>
