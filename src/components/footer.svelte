@@ -1,25 +1,21 @@
-"use client";
+<script lang="ts">
+  import { onMount } from "svelte";
+  import Logo from "./logo.svelte";
 
-import { type ReactElement, useEffect, useRef } from "react";
-import Logo from "./logo";
+  // how far the logo trails the page, and how small it starts: the same numbers the
+  // footer-drift and footer-pop keyframes use
+  const driftVh = 20;
+  const startScale = 0.7;
+  // share of the remaining distance the logo covers each frame
+  const follow = 0.2;
 
-// how far the logo trails the page, and how small it starts: the same numbers the
-// footer-drift and footer-pop keyframes use
-const driftVh = 20;
-const startScale = 0.7;
-// share of the remaining distance the logo covers each frame
-const follow = 0.2;
+  let track: HTMLElement;
+  let logo = $state<SVGSVGElement>();
 
-export default function Footer(): ReactElement {
-  const track = useRef<HTMLElement>(null);
-  const logo = useRef<SVGSVGElement>(null);
-
-  useEffect(() => {
-    const trackElement = track.current;
-    const logoElement = logo.current;
+  onMount(() => {
+    const logoElement = logo;
     if (
-      trackElement === null ||
-      logoElement === null ||
+      logoElement === undefined ||
       CSS.supports("animation-timeline: view()") ||
       matchMedia("(prefers-reduced-motion: reduce)").matches
     ) {
@@ -31,7 +27,7 @@ export default function Footer(): ReactElement {
       let running = false;
 
       const settle = () => {
-        const { top, height } = trackElement.getBoundingClientRect();
+        const { top, height } = track.getBoundingClientRect();
         const wanted = Math.min(
           1,
           Math.max(0, (window.innerHeight - top) / height),
@@ -64,18 +60,16 @@ export default function Footer(): ReactElement {
         window.removeEventListener("resize", wake);
       };
     }
-  }, []);
+  });
+</script>
 
-  return (
-    <footer
-      ref={track}
-      className="footer-track w-full h-dvh relative overflow-hidden flex justify-center items-center bg-footer text-footer-ink"
-    >
-      <Logo
-        ref={logo}
-        label="Erik Brinkman"
-        className="footer-logo w-[min(300px,60vw)] h-auto"
-      />
-    </footer>
-  );
-}
+<footer
+  bind:this={track}
+  class="footer-track w-full h-dvh relative overflow-hidden flex justify-center items-center bg-footer text-footer-ink"
+>
+  <Logo
+    bind:element={logo}
+    label="Erik Brinkman"
+    class="footer-logo w-[min(300px,60vw)] h-auto"
+  />
+</footer>

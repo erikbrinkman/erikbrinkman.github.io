@@ -1,8 +1,6 @@
 # Cache #
 #########
-.next
-tsconfig.tsbuildinfo
 node_modules
-cache
-out
+.ssr
+dist
 *.un~
