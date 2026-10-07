@@ -1,24 +1,42 @@
 <script lang="ts">
+  import Authors from "#lib/components/authors.svelte";
+  import ContactList from "#lib/components/contact-list.svelte";
+  import Contents from "#lib/components/contents.svelte";
+  import Details, { type DetailsItem } from "#lib/components/details.svelte";
+  import Footer from "#lib/components/footer.svelte";
+  import HafaIcon from "#lib/components/hafa-icon.svelte";
+  import Hero from "#lib/components/hero.svelte";
+  import LinkList from "#lib/components/link-list.svelte";
+  import MobileNav from "#lib/components/mobile-nav.svelte";
+  import PaperMeta from "#lib/components/paper-meta.svelte";
+  import Section from "#lib/components/section.svelte";
+  import TextLink from "#lib/components/text-link.svelte";
+  import goat from "#lib/images/marek-piwnicki-WYtS0f4IaT8-unsplash.jpg";
+  import newyork from "#lib/images/matteo-catanese-tr7PoBH0Aow-unsplash.jpg";
   import FaLinkedin from "~icons/fa6-brands/linkedin";
   import SiGithub from "~icons/simple-icons/github";
   import SiGmail from "~icons/simple-icons/gmail";
   import SiGooglescholar from "~icons/simple-icons/googlescholar";
-  import Authors from "./components/authors.svelte";
-  import ContactList from "./components/contact-list.svelte";
-  import Contents from "./components/contents.svelte";
-  import Details, { type DetailsItem } from "./components/details.svelte";
-  import Footer from "./components/footer.svelte";
-  import HafaIcon from "./components/hafa-icon.svelte";
-  import Hero from "./components/hero.svelte";
-  import LinkList from "./components/link-list.svelte";
-  import MobileNav from "./components/mobile-nav.svelte";
-  import PaperMeta from "./components/paper-meta.svelte";
-  import Section from "./components/section.svelte";
-  import TextLink from "./components/text-link.svelte";
-  import goat from "./images/marek-piwnicki-WYtS0f4IaT8-unsplash.jpg";
-  import newyork from "./images/matteo-catanese-tr7PoBH0Aow-unsplash.jpg";
 
+  const siteUrl = "https://erikbrinkman.github.io";
+  const siteTitle = "Erik Brinkman";
+  const siteDescription = "Researcher in AI Fairness and Safety";
+  const headshot = `${siteUrl}/headshot.jpg`;
+  const github = "https://github.com/erikbrinkman";
+  const scholar = "https://scholar.google.com/citations?user=4CerxXxb7KAC";
+  const linkedin = "https://www.linkedin.com/in/erikbrinkman";
   const email = "erik.brinkman@gmail.com";
+
+  const personSchema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: siteTitle,
+    url: siteUrl,
+    image: headshot,
+    jobTitle: "Researcher",
+    description: siteDescription,
+    sameAs: [github, scholar, linkedin],
+  });
 
   const research: DetailsItem[] = [
     {
@@ -37,6 +55,27 @@
     },
   ];
 </script>
+
+<svelte:head>
+  <title>{siteTitle}</title>
+  <meta name="description" content={siteDescription}>
+  <link rel="canonical" href={siteUrl}>
+  <meta property="og:type" content="website">
+  <meta property="og:url" content={siteUrl}>
+  <meta property="og:site_name" content={siteTitle}>
+  <meta property="og:title" content={siteTitle}>
+  <meta property="og:description" content={siteDescription}>
+  <meta property="og:image" content={headshot}>
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="1280">
+  <meta property="og:image:alt" content={siteTitle}>
+  <!-- the headshot is square, so the large card would crop it -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content={siteTitle}>
+  <meta name="twitter:description" content={siteDescription}>
+  <meta name="twitter:image" content={headshot}>
+  {@html `<script type="application/ld+json">${personSchema}</${"script"}>`}
+</svelte:head>
 
 {#snippet goatContents()}
   <p>
@@ -134,10 +173,10 @@
         <LinkList
           class="decoration-link-line justify-start"
           links={[
-            { name: "Resume", href: "https://erikbrinkman.github.io/resume" },
+            { name: "Resume", href: "/resume/" },
             {
               name: "Curriculum Vitae",
-              href: "https://erikbrinkman.github.io/resume/cv",
+              href: "/resume/cv/",
             },
           ]}
         />
@@ -165,13 +204,13 @@
             {
               name: "GitHub",
               handle: "github.com/erikbrinkman",
-              href: "https://github.com/erikbrinkman",
+              href: github,
               icon: SiGithub,
             },
             {
               name: "Google Scholar",
               handle: "scholar.google.com",
-              href: "https://scholar.google.com/citations?user=4CerxXxb7KAC",
+              href: scholar,
               icon: SiGooglescholar,
             },
             {
@@ -183,7 +222,7 @@
             {
               name: "LinkedIn",
               handle: "linkedin.com/in/erikbrinkman",
-              href: "https://www.linkedin.com/in/erikbrinkman",
+              href: linkedin,
               icon: FaLinkedin,
             },
             {

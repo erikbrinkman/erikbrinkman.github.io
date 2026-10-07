@@ -1,6 +1,6 @@
 # Cache #
 #########
 node_modules
-.ssr
+.svelte-kit
 dist
 *.un~

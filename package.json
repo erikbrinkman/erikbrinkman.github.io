@@ -7,12 +7,15 @@
   "author": "Erik Brinkman <erik.brinkman@gmail.com>",
   "type": "module",
   "license": "MIT",
+  "imports": {
+    "#lib/*": "./src/lib/*"
+  },
   "scripts": {
-    "dev": "vite",
-    "build": "vite build && vite build --ssr --outDir .ssr && bun scripts/prerender.ts",
+    "dev": "vite dev",
+    "build": "vite build",
     "preview": "vite preview",
     "fmt": "biome check --write",
-    "lint": "svelte-check --fail-on-warnings && biome check"
+    "lint": "svelte-kit sync && svelte-check --fail-on-warnings && biome check"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.5.15",
@@ -21,9 +24,10 @@
     "@iconify-json/fa6-brands": "^1.2.6",
     "@iconify-json/ic": "^1.2.4",
     "@iconify-json/simple-icons": "^1.2.99",
+    "@sveltejs/adapter-static": "^4.0.0",
+    "@sveltejs/kit": "^3.0.1",
     "@sveltejs/vite-plugin-svelte": "^7.3.1",
     "@tailwindcss/vite": "^4.3.3",
-    "@types/bun": "^1.4.2",
     "svelte": "^5.57.2",
     "svelte-check": "^4.7.6",
     "tailwindcss": "^4.3.3",

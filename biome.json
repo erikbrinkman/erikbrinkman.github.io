@@ -6,12 +6,7 @@
     "useIgnoreFile": true
   },
   "files": {
-    "includes": [
-      "*.{json,js,ts,html}",
-      "resume/**/*.html",
-      "src/**/*.{ts,svelte,css}",
-      "scripts/**/*.ts"
-    ],
+    "includes": ["*.{json,js,ts}", "src/**/*.{ts,svelte,css}"],
     "ignoreUnknown": false
   },
   "formatter": {

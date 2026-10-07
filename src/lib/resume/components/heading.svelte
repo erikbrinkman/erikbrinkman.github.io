@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Logo from "../../components/logo.svelte";
+  import Logo from "#lib/components/logo.svelte";
 </script>
 
 <!-- the extra point in the clip-path is so that it animates properly -->
@@ -17,9 +17,7 @@
       <a href="mailto:erik.brinkman@gmail.com">erik.brinkman@gmail.com</a>
     </div>
     <div class="hover:text-white hover:underline">
-      <a href="https://erikbrinkman.github.io" target="_blank" rel="noreferrer">
-        erikbrinkman.github.io
-      </a>
+      <a href="/"> erikbrinkman.github.io </a>
     </div>
     <div class="hover:text-white hover:underline">
       <a href="tel:+13146326235" target="_blank" rel="noreferrer">
