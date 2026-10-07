@@ -8,6 +8,7 @@
   "files": {
     "includes": [
       "*.{json,js,ts,html}",
+      "resume/**/*.html",
       "src/**/*.{ts,svelte,css}",
       "scripts/**/*.ts"
     ],
