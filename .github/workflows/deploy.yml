@@ -25,13 +25,10 @@ jobs:
       - run: git lfs pull
       - uses: oven-sh/setup-bun@v2
       - run: bun install --frozen-lockfile
-      - uses: actions/configure-pages@v6
-        with:
-          static_site_generator: next
-      - run: bun export
+      - run: bun run build
       - uses: actions/upload-pages-artifact@v5
         with:
-          path: ./out
+          path: ./dist
 
   # separate from the build so a failed deploy re-runs without rebuilding the site
   pages-deploy:

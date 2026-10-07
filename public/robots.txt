@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://erikbrinkman.github.io/sitemap.xml
