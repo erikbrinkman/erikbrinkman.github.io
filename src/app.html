@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    %sveltekit.head%
+  </head>
+  <!-- the site and the resume each carry their own page-wide styles, so moving between them
+    has to load the page afresh rather than swap its contents -->
+  <body data-sveltekit-reload>
+    <div id="root">%sveltekit.body%</div>
+  </body>
+</html>

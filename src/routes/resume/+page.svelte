@@ -1,13 +1,13 @@
 <script lang="ts">
-  import Experience from "./components/experience.svelte";
-  import ExperienceItem from "./components/experience-item.svelte";
-  import Footing from "./components/footing.svelte";
-  import Heading from "./components/heading.svelte";
-  import HeadingSpacer from "./components/heading-spacer.svelte";
-  import LevelSkills from "./components/level-skills.svelte";
-  import Publication from "./components/publication.svelte";
-  import School from "./components/school.svelte";
-  import Section from "./components/section.svelte";
+  import Experience from "#lib/resume/components/experience.svelte";
+  import ExperienceItem from "#lib/resume/components/experience-item.svelte";
+  import Footing from "#lib/resume/components/footing.svelte";
+  import Heading from "#lib/resume/components/heading.svelte";
+  import HeadingSpacer from "#lib/resume/components/heading-spacer.svelte";
+  import LevelSkills from "#lib/resume/components/level-skills.svelte";
+  import Publication from "#lib/resume/components/publication.svelte";
+  import School from "#lib/resume/components/school.svelte";
+  import Section from "#lib/resume/components/section.svelte";
 </script>
 
 <div class="overflow-hidden w-full min-h-screen [page:nomargin]">

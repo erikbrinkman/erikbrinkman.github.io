@@ -59,6 +59,7 @@
 
 <script lang="ts">
   import { onMount } from "svelte";
+  import { pushState } from "$app/navigation";
   import MdClose from "~icons/ic/baseline-close";
   import ActionButton from "./action-button.svelte";
   import Contents from "./contents.svelte";
@@ -120,7 +121,7 @@
   function expand(index: number): void {
     const element = projects[index];
     selected = index;
-    history.pushState(null, "", `#${items[index].name}`);
+    pushState(`#${items[index].name}`, {});
     if (element) {
       glide(element, 0);
     }
@@ -132,7 +133,7 @@
     const resting = element?.getBoundingClientRect().top;
     selected = null;
     // drop the fragment without leaving a dangling "#" in the url
-    history.pushState(null, "", location.pathname + location.search);
+    pushState(location.pathname + location.search, {});
     if (element && resting !== undefined) {
       glide(element, resting);
     }
