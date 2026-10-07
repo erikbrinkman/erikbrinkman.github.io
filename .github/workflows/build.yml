@@ -24,4 +24,4 @@ jobs:
       - uses: oven-sh/setup-bun@v2
       - run: bun install --frozen-lockfile
       - run: bun lint
-      - run: bun export
+      - run: bun run build
