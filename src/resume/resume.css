@@ -1,0 +1,39 @@
+@import "@fontsource/josefin-sans/latin-400.css" layer(base);
+@import "@fontsource/josefin-sans/latin-700.css" layer(base);
+@import "@fontsource/lato/latin-400.css" layer(base);
+
+@import "tailwindcss";
+
+@layer base {
+  body,
+  html,
+  #root {
+    height: 100%;
+  }
+}
+
+@theme {
+  --font-title: "Josefin Sans", sans-serif;
+  --font-sans: "Lato", sans-serif;
+}
+
+/* set printing size */
+@page {
+  margin: 1.5rem 0;
+  size: letter;
+}
+
+@page nomargin {
+  margin-bottom: 0;
+}
+
+@page :first {
+  margin-top: 0;
+}
+
+/* for color printing */
+@media print {
+  :root {
+    print-color-adjust: exact;
+  }
+}

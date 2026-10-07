@@ -9,7 +9,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && vite build --ssr src/app.svelte --outDir .ssr && bun scripts/prerender.ts",
+    "build": "vite build && vite build --ssr --outDir .ssr && bun scripts/prerender.ts",
     "preview": "vite preview",
     "fmt": "biome check --write",
     "lint": "svelte-check --fail-on-warnings && biome check"
