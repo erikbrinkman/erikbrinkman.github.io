@@ -1,9 +1,9 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @theme {
   --font-section: Jaapokki Enhance, sans-serif;
-  --font-details: var(--font-josefin-sans), sans-serif;
-  --font-sans: var(--font-lato), sans-serif;
+  --font-details: "Josefin Sans", sans-serif;
+  --font-sans: "Lato", sans-serif;
 
   --text-name: min(6rem, 16vw);
 
@@ -44,8 +44,8 @@
 
 @layer base {
   @font-face {
-    font-family: 'Jaapokki Enhance';
-    src: url('/fonts/jaapokkienhance-regular.woff');
+    font-family: "Jaapokki Enhance";
+    src: url("/fonts/jaapokkienhance-regular.woff");
     font-style: normal;
     font-weight: 400;
     font-display: swap;
@@ -150,8 +150,11 @@
     *,
     *::before,
     *::after {
+      /* biome-ignore lint/complexity/noImportantStyles: has to beat every utility class */
       transition-duration: 0.01ms !important;
+      /* biome-ignore lint/complexity/noImportantStyles: has to beat every utility class */
       transition-delay: 0s !important;
+      /* biome-ignore lint/complexity/noImportantStyles: has to beat every utility class */
       animation-duration: 0.01ms !important;
     }
   }
@@ -168,7 +171,7 @@
 }
 
 /* the footer logo lags the page as the footer scrolls in, growing and fading up to its resting
-   place. A scroll timeline runs it off the main thread; footer.tsx animates the same values
+   place. A scroll timeline runs it off the main thread; footer.svelte animates the same values
    frame by frame where there is none. */
 @keyframes footer-drift {
   from {
