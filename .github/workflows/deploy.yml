@@ -25,7 +25,7 @@ jobs:
       - run: git lfs pull
       - uses: oven-sh/setup-bun@v2
       - run: bun install --frozen-lockfile
-      - run: bun run build
+      - run: bun export
       - uses: actions/upload-pages-artifact@v5
         with:
           path: ./dist
