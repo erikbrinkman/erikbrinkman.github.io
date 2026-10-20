@@ -227,8 +227,8 @@
             },
             {
               name: "hafa.io",
-              handle: "hafaio.github.io",
-              href: "https://hafaio.github.io",
+              handle: "hafa.cc",
+              href: "https://hafa.cc",
               icon: HafaIcon,
             },
           ]}
