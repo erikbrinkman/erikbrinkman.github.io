@@ -226,7 +226,7 @@
               icon: FaLinkedin,
             },
             {
-              name: "hafa.io",
+              name: "hafa.cc",
               handle: "hafa.cc",
               href: "https://hafa.cc",
               icon: HafaIcon,
