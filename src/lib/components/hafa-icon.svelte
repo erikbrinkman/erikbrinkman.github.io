@@ -1,5 +1,5 @@
 <script lang="ts">
-  // monochrome version of hafa.io's logo: two hexagons with their right side filled
+  // monochrome version of hafa.cc's logo: two hexagons with their right side filled
 </script>
 
 <svg
