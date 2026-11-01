@@ -142,10 +142,7 @@
 
 <svelte:window onhashchange={syncHash} onpopstate={syncHash} />
 
-{#snippet tile(
-  item: DetailsItem,
-  state: TileState,
-)}
+{#snippet tile(item: DetailsItem, state: TileState)}
   <div
     class="absolute inset-0 -z-10 bg-cover bg-center transition-transform duration-1000 group-hover:scale-110"
     style:background-image="url({item.img})"
